@@ -3,7 +3,9 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'atividade_model.dart';
 export 'atividade_model.dart';
 
@@ -62,7 +64,7 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 5.0),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
@@ -82,9 +84,9 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               5.0, 0.0, 5.0, 0.0),
                           child: AuthUserStreamWidget(
                             builder: (context) => StreamBuilder<UsersRecord>(
@@ -92,7 +94,7 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
-                                  return const Center(
+                                  return Center(
                                     child: SizedBox(
                                       width: 50.0,
                                       height: 50.0,
@@ -130,13 +132,13 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                         child: StreamBuilder<HorsesRecord>(
                           stream: HorsesRecord.getDocument(widget.cavalo!),
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
-                              return const Center(
+                              return Center(
                                 child: SizedBox(
                                   width: 50.0,
                                   height: 50.0,
@@ -176,7 +178,7 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 10.0, 0.0),
                               child: StreamBuilder<List<HorsesRecord>>(
                                 stream: queryHorsesRecord(
@@ -190,7 +192,7 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
-                                    return const Center(
+                                    return Center(
                                       child: SizedBox(
                                         width: 50.0,
                                         height: 50.0,
@@ -224,10 +226,20 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'EB Garamond',
+                                          font: GoogleFonts.ebGaramond(
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 18.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   );
                                 },
@@ -249,9 +261,22 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                           ],
@@ -260,8 +285,21 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                           widget.frequencia!,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                         ),
                         Row(
@@ -272,20 +310,46 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                             ),
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 widget.dataFim!,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'EB Garamond',
+                                      font: GoogleFonts.ebGaramond(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -305,7 +369,7 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 5.0, 0.0),
                               child: FlutterFlowIconButton(
                                 borderRadius: 8.0,
@@ -322,7 +386,7 @@ class _AtividadeWidgetState extends State<AtividadeWidget> {
                                   logFirebaseEvent('IconButton_navigate_to');
 
                                   context.pushNamed(
-                                    'CavaloDetalheAtividade',
+                                    CavaloDetalheAtividadeWidget.routeName,
                                     queryParameters: {
                                       'atividadeID': serializeParam(
                                         widget.atividadeID,

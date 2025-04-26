@@ -9,6 +9,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'view_consulta_model.dart';
 export 'view_consulta_model.dart';
 
@@ -63,8 +64,8 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 70.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 70.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -104,15 +105,15 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: EdgeInsets.all(12.0),
               child: Container(
                 width: double.infinity,
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   maxWidth: 670.0,
                 ),
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
                       blurRadius: 3.0,
                       color: Color(0x33000000),
@@ -139,7 +140,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
-                            return const Center(
+                            return Center(
                               child: SizedBox(
                                 width: 50.0,
                                 height: 50.0,
@@ -158,13 +159,13 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                             key: _model.formKey,
                             autovalidateMode: AutovalidateMode.always,
                             child: Padding(
-                              padding: const EdgeInsets.all(24.0),
+                              padding: EdgeInsets.all(24.0),
                               child: Column(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 12.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -182,7 +183,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                 children: [
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: StreamBuilder<
@@ -195,7 +196,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                           (context, snapshot) {
                                                         // Customize what your widget looks like when it's loading.
                                                         if (!snapshot.hasData) {
-                                                          return const Center(
+                                                          return Center(
                                                             child: SizedBox(
                                                               width: 50.0,
                                                               height: 50.0,
@@ -240,7 +241,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                         (context, snapshot) {
                                                       // Customize what your widget looks like when it's loading.
                                                       if (!snapshot.hasData) {
-                                                        return const Center(
+                                                        return Center(
                                                           child: SizedBox(
                                                             width: 50.0,
                                                             height: 50.0,
@@ -286,7 +287,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 4.0),
                                                 child: Text(
@@ -296,10 +297,31 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                           context)
                                                       .headlineMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'EB Garamond',
+                                                        font: GoogleFonts
+                                                            .ebGaramond(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 20.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -310,7 +332,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
-                                                    return const Center(
+                                                    return Center(
                                                       child: SizedBox(
                                                         width: 50.0,
                                                         height: 50.0,
@@ -339,12 +361,25 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w600,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   );
                                                 },
@@ -383,9 +418,26 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'EB Garamond',
+                                              font: GoogleFonts.ebGaramond(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               fontSize: 18.0,
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                       ),
                                     ],
@@ -405,26 +457,47 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                           ),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: Text(
                                               formCavalosConsultasRecord
                                                   .descricao,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'EB Garamond',
-                                                        fontSize: 18.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font:
+                                                        GoogleFonts.ebGaramond(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
+                                                    fontSize: 18.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                             ),
                                           ),
                                         ),
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 10.0),
                                         child: SafeArea(
                                           child: Container(
@@ -438,7 +511,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                       .secondaryBackground,
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 8.0, 0.0, 0.0),
                                               child: Text(
                                                 'Medicações',
@@ -446,12 +519,25 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 20.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                               ),
                                             ),
@@ -485,7 +571,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
                                               if (!snapshot.hasData) {
-                                                return const Center(
+                                                return Center(
                                                   child: SizedBox(
                                                     width: 50.0,
                                                     height: 50.0,
@@ -518,7 +604,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                           listViewIndex];
                                                   return Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 10.0),
                                                     child: Row(
@@ -535,10 +621,27 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'EB Garamond',
+                                                                font: GoogleFonts
+                                                                    .ebGaramond(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                         FlutterFlowIconButton(
@@ -607,9 +710,9 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                               BorderRadius.circular(8.0),
                                           child: CachedNetworkImage(
                                             fadeInDuration:
-                                                const Duration(milliseconds: 500),
+                                                Duration(milliseconds: 500),
                                             fadeOutDuration:
-                                                const Duration(milliseconds: 500),
+                                                Duration(milliseconds: 500),
                                             imageUrl:
                                                 formCavalosConsultasRecord.foto,
                                             width: 150.0,
@@ -623,7 +726,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 10.0, 0.0, 0.0),
                                         child: StreamBuilder<UsersRecord>(
                                           stream: UsersRecord.getDocument(
@@ -632,7 +735,7 @@ class _ViewConsultaWidgetState extends State<ViewConsultaWidget>
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
                                             if (!snapshot.hasData) {
-                                              return const Center(
+                                              return Center(
                                                 child: SizedBox(
                                                   width: 50.0,
                                                   height: 50.0,

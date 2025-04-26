@@ -2,7 +2,9 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'horses_list_row_model.dart';
 export 'horses_list_row_model.dart';
 
@@ -52,7 +54,7 @@ class _HorsesListRowWidgetState extends State<HorsesListRowWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+      padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
       child: InkWell(
         splashColor: Colors.transparent,
         focusColor: Colors.transparent,
@@ -63,7 +65,7 @@ class _HorsesListRowWidgetState extends State<HorsesListRowWidget> {
           logFirebaseEvent('Row_navigate_to');
 
           context.pushNamed(
-            'CavaloDetalhe',
+            CavaloDetalheWidget.routeName,
             queryParameters: {
               'cavalo': serializeParam(
                 widget.parameter4,
@@ -88,9 +90,18 @@ class _HorsesListRowWidgetState extends State<HorsesListRowWidget> {
             Text(
               widget.parameter2!,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
-                    fontFamily: 'EB Garamond',
+                    font: GoogleFonts.ebGaramond(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                    ),
                     fontSize: 20.0,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                   ),
             ),
             Switch.adaptive(
@@ -122,7 +133,7 @@ class _HorsesListRowWidgetState extends State<HorsesListRowWidget> {
             FlutterFlowIconButton(
               borderRadius: 8.0,
               buttonSize: 40.0,
-              fillColor: const Color(0xFFB0000A),
+              fillColor: Color(0xFFB0000A),
               icon: Icon(
                 Icons.delete_outline,
                 color: FlutterFlowTheme.of(context).info,
@@ -135,19 +146,19 @@ class _HorsesListRowWidgetState extends State<HorsesListRowWidget> {
                       context: context,
                       builder: (alertDialogContext) {
                         return AlertDialog(
-                          title: const Text('Removendo Cavalo'),
+                          title: Text('Removendo Cavalo'),
                           content:
-                              const Text('Essa ação é irreversivel, tem certeza?'),
+                              Text('Essa ação é irreversivel, tem certeza?'),
                           actions: [
                             TextButton(
                               onPressed: () =>
                                   Navigator.pop(alertDialogContext, false),
-                              child: const Text('Não'),
+                              child: Text('Não'),
                             ),
                             TextButton(
                               onPressed: () =>
                                   Navigator.pop(alertDialogContext, true),
-                              child: const Text('Sim, pode remover o cavalo.'),
+                              child: Text('Sim, pode remover o cavalo.'),
                             ),
                           ],
                         );

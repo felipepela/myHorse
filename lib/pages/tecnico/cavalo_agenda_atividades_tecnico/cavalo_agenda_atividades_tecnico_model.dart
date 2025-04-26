@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_calendar.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'cavalo_agenda_atividades_tecnico_widget.dart'
     show CavaloAgendaAtividadesTecnicoWidget;
 import 'package:flutter/material.dart';

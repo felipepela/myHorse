@@ -6,7 +6,9 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/veterinrio/mod_consulta/mod_consulta_widget.dart';
 import '/pages/veterinrio/novo_consulta/novo_consulta_widget.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'cavalo_consultas_medicacoes_model.dart';
 export 'cavalo_consultas_medicacoes_model.dart';
 
@@ -17,6 +19,9 @@ class CavaloConsultasMedicacoesWidget extends StatefulWidget {
   });
 
   final DocumentReference? cavalo;
+
+  static String routeName = 'CavaloConsultasMedicacoes';
+  static String routePath = '/cavaloConsultasMedicacoes';
 
   @override
   State<CavaloConsultasMedicacoesWidget> createState() =>
@@ -97,7 +102,7 @@ class _CavaloConsultasMedicacoesWidgetState
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -107,7 +112,7 @@ class _CavaloConsultasMedicacoesWidgetState
               logFirebaseEvent('IconButton_navigate_to');
 
               context.pushNamed(
-                'CavaloDetalheVeterinario',
+                CavaloDetalheVeterinarioWidget.routeName,
                 queryParameters: {
                   'cavalo': serializeParam(
                     widget.cavalo,
@@ -120,12 +125,20 @@ class _CavaloConsultasMedicacoesWidgetState
           title: Text(
             'Consultas e Medicações',
             style: FlutterFlowTheme.of(context).titleMedium.override(
-                  fontFamily: 'EB Garamond',
+                  font: GoogleFonts.ebGaramond(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                  ),
                   fontSize: 22.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                  fontStyle: FlutterFlowTheme.of(context).titleMedium.fontStyle,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -156,30 +169,95 @@ class _CavaloConsultasMedicacoesWidgetState
                       },
                       titleStyle:
                           FlutterFlowTheme.of(context).titleLarge.override(
-                                fontFamily: 'EB Garamond',
+                                font: GoogleFonts.ebGaramond(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .fontStyle,
+                                ),
                                 color: FlutterFlowTheme.of(context).primary,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .fontStyle,
                               ),
                       dayOfWeekStyle:
                           FlutterFlowTheme.of(context).bodyLarge.override(
-                                fontFamily: 'EB Garamond',
+                                font: GoogleFonts.ebGaramond(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .fontStyle,
+                                ),
                                 fontSize: 14.0,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontStyle,
                               ),
                       dateStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'EB Garamond',
+                                font: GoogleFonts.ebGaramond(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
                               ),
                       selectedDateStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'EB Garamond',
+                                font: GoogleFonts.ebGaramond(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .fontStyle,
                               ),
                       inactiveDateStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
-                                fontFamily: 'EB Garamond',
+                                font: GoogleFonts.ebGaramond(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
                               ),
                     ),
                   ),
@@ -192,7 +270,7 @@ class _CavaloConsultasMedicacoesWidgetState
                 Expanded(
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 0.0),
                     child: StreamBuilder<List<CavalosConsultasRecord>>(
                       stream: queryCavalosConsultasRecord(
                         queryBuilder: (cavalosConsultasRecord) =>
@@ -219,7 +297,7 @@ class _CavaloConsultasMedicacoesWidgetState
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
-                          return const Center(
+                          return Center(
                             child: SizedBox(
                               width: 50.0,
                               height: 50.0,
@@ -245,14 +323,14 @@ class _CavaloConsultasMedicacoesWidgetState
                                 listViewCavalosConsultasRecordList[
                                     listViewIndex];
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 12.0),
                               child: Container(
                                 width: 100.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .primaryBackground,
-                                  boxShadow: const [
+                                  boxShadow: [
                                     BoxShadow(
                                       blurRadius: 3.0,
                                       color: Color(0x33000000),
@@ -265,7 +343,7 @@ class _CavaloConsultasMedicacoesWidgetState
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: EdgeInsets.all(8.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
@@ -280,7 +358,7 @@ class _CavaloConsultasMedicacoesWidgetState
                                         children: [
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     4.0, 0.0, 0.0, 0.0),
                                             child: Text(
                                               listViewCavalosConsultasRecord
@@ -289,21 +367,35 @@ class _CavaloConsultasMedicacoesWidgetState
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'EB Garamond',
+                                                    font:
+                                                        GoogleFonts.ebGaramond(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 4.0, 0.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           4.0, 0.0, 0.0, 0.0),
                                                   child: Text(
@@ -315,14 +407,28 @@ class _CavaloConsultasMedicacoesWidgetState
                                                             context)
                                                         .bodySmall
                                                         .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
+                                                          font: GoogleFonts
+                                                              .plusJakartaSans(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodySmall
+                                                                    .fontStyle,
+                                                          ),
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodySmall
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -381,12 +487,12 @@ class _CavaloConsultasMedicacoesWidgetState
                                                 BorderRadius.circular(8.0),
                                             shape: BoxShape.rectangle,
                                             border: Border.all(
-                                              color: const Color(0xFFE0E3E7),
+                                              color: Color(0xFFE0E3E7),
                                               width: 1.0,
                                             ),
                                           ),
                                           alignment:
-                                              const AlignmentDirectional(0.0, 0.0),
+                                              AlignmentDirectional(0.0, 0.0),
                                           child: Icon(
                                             Icons.more_vert_sharp,
                                             color: FlutterFlowTheme.of(context)

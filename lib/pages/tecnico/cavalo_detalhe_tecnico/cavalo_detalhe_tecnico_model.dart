@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'cavalo_detalhe_tecnico_widget.dart' show CavaloDetalheTecnicoWidget;
 import 'package:flutter/material.dart';
 

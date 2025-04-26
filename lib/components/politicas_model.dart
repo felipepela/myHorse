@@ -1,9 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/index.dart';
-import 'cavalo_atividades_widget.dart' show CavaloAtividadesWidget;
+import 'politicas_widget.dart' show PoliticasWidget;
 import 'package:flutter/material.dart';
 
-class CavaloAtividadesModel extends FlutterFlowModel<CavaloAtividadesWidget> {
+class PoliticasModel extends FlutterFlowModel<PoliticasWidget> {
   @override
   void initState(BuildContext context) {}
 

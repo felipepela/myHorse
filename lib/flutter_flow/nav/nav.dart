@@ -5,11 +5,10 @@ import 'package:provider/provider.dart';
 
 import '/auth/base_auth_user_provider.dart';
 
-import '/backend/push_notifications/push_notifications_handler.dart'
-    show PushNotificationsHandler;
-import '/index.dart';
 import '/main.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+
+import '/index.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -77,29 +76,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const LoginWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : LoginWidget(),
         ),
         FFRoute(
-          name: 'Login',
-          path: '/login',
-          builder: (context, params) => const LoginWidget(),
+          name: LoginWidget.routeName,
+          path: LoginWidget.routePath,
+          builder: (context, params) => LoginWidget(),
         ),
         FFRoute(
-          name: 'Profile',
-          path: '/profile',
+          name: ProfileWidget.routeName,
+          path: ProfileWidget.routePath,
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Profile')
-              : const ProfileWidget(),
+              ? NavBarPage(initialPage: 'Profile')
+              : ProfileWidget(),
         ),
         FFRoute(
-          name: 'CavaloProfissionais',
-          path: '/cavaloProfissionais',
+          name: CavaloProfissionaisWidget.routeName,
+          path: CavaloProfissionaisWidget.routePath,
           builder: (context, params) => CavaloProfissionaisWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -110,8 +109,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloGaleria',
-          path: '/cavaloGaleria',
+          name: CavaloGaleriaWidget.routeName,
+          path: CavaloGaleriaWidget.routePath,
           builder: (context, params) => CavaloGaleriaWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -122,8 +121,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloDetalhe',
-          path: '/cavaloDetalhe',
+          name: CavaloDetalheWidget.routeName,
+          path: CavaloDetalheWidget.routePath,
           builder: (context, params) => CavaloDetalheWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -134,8 +133,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloDocumentos',
-          path: '/cavaloDocumentos',
+          name: CavaloDocumentosWidget.routeName,
+          path: CavaloDocumentosWidget.routePath,
           builder: (context, params) => CavaloDocumentosWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -146,8 +145,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloProfissionaisAdd',
-          path: '/cavaloProfissionaisAdd',
+          name: CavaloProfissionaisAddWidget.routeName,
+          path: CavaloProfissionaisAddWidget.routePath,
           builder: (context, params) => CavaloProfissionaisAddWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -162,8 +161,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloAtividades',
-          path: '/cavaloAtividades',
+          name: CavaloAtividadesWidget.routeName,
+          path: CavaloAtividadesWidget.routePath,
           builder: (context, params) => CavaloAtividadesWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -174,8 +173,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloAgendaConsultas',
-          path: '/cavaloAgendaConsultas',
+          name: CavaloAgendaConsultasWidget.routeName,
+          path: CavaloAgendaConsultasWidget.routePath,
           builder: (context, params) => CavaloAgendaConsultasWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -186,20 +185,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'Cavalos',
-          path: '/cavalos',
+          name: CavalosWidget.routeName,
+          path: CavalosWidget.routePath,
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Cavalos')
-              : const CavalosWidget(),
+              ? NavBarPage(initialPage: 'Cavalos')
+              : CavalosWidget(),
         ),
         FFRoute(
-          name: 'AuthUpdate',
-          path: '/authUpdate',
-          builder: (context, params) => const AuthUpdateWidget(),
+          name: AuthUpdateWidget.routeName,
+          path: AuthUpdateWidget.routePath,
+          builder: (context, params) => AuthUpdateWidget(),
         ),
         FFRoute(
-          name: 'CavaloDetalheVeterinario',
-          path: '/cavaloDetalheVeterinario',
+          name: CavaloDetalheVeterinarioWidget.routeName,
+          path: CavaloDetalheVeterinarioWidget.routePath,
           builder: (context, params) => CavaloDetalheVeterinarioWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -210,8 +209,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloConsultasMedicacoes',
-          path: '/cavaloConsultasMedicacoes',
+          name: CavaloConsultasMedicacoesWidget.routeName,
+          path: CavaloConsultasMedicacoesWidget.routePath,
           builder: (context, params) => CavaloConsultasMedicacoesWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -222,18 +221,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'ProfileVet',
-          path: '/profileVet',
-          builder: (context, params) => const ProfileVetWidget(),
+          name: ProfileVetWidget.routeName,
+          path: ProfileVetWidget.routePath,
+          builder: (context, params) => ProfileVetWidget(),
         ),
         FFRoute(
-          name: 'ProfileTratador',
-          path: '/profileTratador',
-          builder: (context, params) => const ProfileTratadorWidget(),
+          name: ProfileTratadorWidget.routeName,
+          path: ProfileTratadorWidget.routePath,
+          builder: (context, params) => ProfileTratadorWidget(),
         ),
         FFRoute(
-          name: 'CavaloDetalheTratador',
-          path: '/cavaloDetalheTratador',
+          name: CavaloDetalheTratadorWidget.routeName,
+          path: CavaloDetalheTratadorWidget.routePath,
           builder: (context, params) => CavaloDetalheTratadorWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -244,8 +243,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloDetalheAtividade',
-          path: '/cavaloDetalheAtividade',
+          name: CavaloDetalheAtividadeWidget.routeName,
+          path: CavaloDetalheAtividadeWidget.routePath,
           builder: (context, params) => CavaloDetalheAtividadeWidget(
             atividadeID: params.getParam(
               'atividadeID',
@@ -262,8 +261,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloAgendaAtividades',
-          path: '/cavaloAgendaAtividades',
+          name: CavaloAgendaAtividadesWidget.routeName,
+          path: CavaloAgendaAtividadesWidget.routePath,
           builder: (context, params) => CavaloAgendaAtividadesWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -274,13 +273,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'ProfileTecnico',
-          path: '/profileTecnico',
-          builder: (context, params) => const ProfileTecnicoWidget(),
+          name: ProfileTecnicoWidget.routeName,
+          path: ProfileTecnicoWidget.routePath,
+          builder: (context, params) => ProfileTecnicoWidget(),
         ),
         FFRoute(
-          name: 'CavaloDetalheTecnico',
-          path: '/cavaloDetalheTecnico',
+          name: CavaloDetalheTecnicoWidget.routeName,
+          path: CavaloDetalheTecnicoWidget.routePath,
           builder: (context, params) => CavaloDetalheTecnicoWidget(
             cavvalo: params.getParam(
               'cavvalo',
@@ -291,8 +290,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloAtividadesTecnico',
-          path: '/cavaloAtividadesTecnico',
+          name: CavaloAtividadesTecnicoWidget.routeName,
+          path: CavaloAtividadesTecnicoWidget.routePath,
           builder: (context, params) => CavaloAtividadesTecnicoWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -303,8 +302,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloAgendaConsultasTcnico',
-          path: '/cavaloAgendaConsultasTcnico',
+          name: CavaloAgendaConsultasTcnicoWidget.routeName,
+          path: CavaloAgendaConsultasTcnicoWidget.routePath,
           builder: (context, params) => CavaloAgendaConsultasTcnicoWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -315,8 +314,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CavaloAgendaAtividadesTecnico',
-          path: '/cavaloAgendaAtividadesTecnico',
+          name: CavaloAgendaAtividadesTecnicoWidget.routeName,
+          path: CavaloAgendaAtividadesTecnicoWidget.routePath,
           builder: (context, params) => CavaloAgendaAtividadesTecnicoWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -327,35 +326,35 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'NewHome',
-          path: '/newHome',
+          name: NewHomeWidget.routeName,
+          path: NewHomeWidget.routePath,
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'NewHome')
-              : const NewHomeWidget(),
+              ? NavBarPage(initialPage: 'NewHome')
+              : NewHomeWidget(),
         ),
         FFRoute(
-          name: 'HomeVeterinario',
-          path: '/homeVeterinario',
-          builder: (context, params) => const HomeVeterinarioWidget(),
+          name: HomeVeterinarioWidget.routeName,
+          path: HomeVeterinarioWidget.routePath,
+          builder: (context, params) => HomeVeterinarioWidget(),
         ),
         FFRoute(
-          name: 'HomeTratador',
-          path: '/homeTratador',
-          builder: (context, params) => const HomeTratadorWidget(),
+          name: HomeTratadorWidget.routeName,
+          path: HomeTratadorWidget.routePath,
+          builder: (context, params) => HomeTratadorWidget(),
         ),
         FFRoute(
-          name: 'HomeTecnico',
-          path: '/homeTecnico',
-          builder: (context, params) => const HomeTecnicoWidget(),
+          name: HomeTecnicoWidget.routeName,
+          path: HomeTecnicoWidget.routePath,
+          builder: (context, params) => HomeTecnicoWidget(),
         ),
         FFRoute(
-          name: 'AgendaGeral',
-          path: '/agendaGeral',
-          builder: (context, params) => const AgendaGeralWidget(),
+          name: AgendaGeralWidget.routeName,
+          path: AgendaGeralWidget.routePath,
+          builder: (context, params) => AgendaGeralWidget(),
         ),
         FFRoute(
-          name: 'CavaloCompeticoes',
-          path: '/cavaloCompeticoes',
+          name: CavaloCompeticoesWidget.routeName,
+          path: CavaloCompeticoesWidget.routePath,
           builder: (context, params) => CavaloCompeticoesWidget(
             cavalo: params.getParam(
               'cavalo',
@@ -366,9 +365,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'HistoricoClinico',
-          path: '/historicoClinico',
-          builder: (context, params) => const HistoricoClinicoWidget(),
+          name: HistoricoClinicoWidget.routeName,
+          path: HistoricoClinicoWidget.routePath,
+          builder: (context, params) => HistoricoClinicoWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -560,7 +559,7 @@ class FFRoute {
                     fit: BoxFit.fitHeight,
                   ),
                 )
-              : PushNotificationsHandler(child: page);
+              : page;
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition
@@ -602,7 +601,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'cavalo_detalhe_atividade_widget.dart' show CavaloDetalheAtividadeWidget;
 import 'package:flutter/material.dart';
 

@@ -1,6 +1,7 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'cavalo_profissionais_add_widget.dart' show CavaloProfissionaisAddWidget;
 import 'package:flutter/material.dart';
 

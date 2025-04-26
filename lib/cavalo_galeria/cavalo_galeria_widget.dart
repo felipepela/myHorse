@@ -4,8 +4,10 @@ import '/components/view_foto_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'cavalo_galeria_model.dart';
 export 'cavalo_galeria_model.dart';
 
@@ -16,6 +18,9 @@ class CavaloGaleriaWidget extends StatefulWidget {
   });
 
   final DocumentReference? cavalo;
+
+  static String routeName = 'CavaloGaleria';
+  static String routePath = '/cavaloGaleria';
 
   @override
   State<CavaloGaleriaWidget> createState() => _CavaloGaleriaWidgetState();
@@ -94,7 +99,7 @@ class _CavaloGaleriaWidgetState extends State<CavaloGaleriaWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -104,7 +109,7 @@ class _CavaloGaleriaWidgetState extends State<CavaloGaleriaWidget> {
               logFirebaseEvent('IconButton_navigate_to');
 
               context.pushNamed(
-                'CavaloDetalhe',
+                CavaloDetalheWidget.routeName,
                 queryParameters: {
                   'cavalo': serializeParam(
                     widget.cavalo,
@@ -117,13 +122,22 @@ class _CavaloGaleriaWidgetState extends State<CavaloGaleriaWidget> {
           title: Text(
             'Galeria de Imagens',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'EB Garamond',
+                  font: GoogleFonts.ebGaramond(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -164,7 +178,7 @@ class _CavaloGaleriaWidgetState extends State<CavaloGaleriaWidget> {
 
                         return MasonryGridView.builder(
                           gridDelegate:
-                              const SliverSimpleGridDelegateWithFixedCrossAxisCount(
+                              SliverSimpleGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                           ),
                           crossAxisSpacing: 10.0,

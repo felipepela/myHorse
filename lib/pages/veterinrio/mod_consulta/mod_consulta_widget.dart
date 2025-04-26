@@ -8,9 +8,11 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import '/pages/veterinrio/novo_medicamento/novo_medicamento_widget.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'mod_consulta_model.dart';
 export 'mod_consulta_model.dart';
 
@@ -71,8 +73,8 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
             curve: Curves.easeInOut,
             delay: 250.0.ms,
             duration: 600.0.ms,
-            begin: const Offset(0.0, 70.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 70.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -112,16 +114,16 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: EdgeInsets.all(12.0),
               child: SafeArea(
                 child: Container(
                   width: double.infinity,
-                  constraints: const BoxConstraints(
+                  constraints: BoxConstraints(
                     maxWidth: 670.0,
                   ),
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
-                    boxShadow: const [
+                    boxShadow: [
                       BoxShadow(
                         blurRadius: 3.0,
                         color: Color(0x33000000),
@@ -148,7 +150,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                           builder: (context, snapshot) {
                             // Customize what your widget looks like when it's loading.
                             if (!snapshot.hasData) {
-                              return const Center(
+                              return Center(
                                 child: SizedBox(
                                   width: 50.0,
                                   height: 50.0,
@@ -167,13 +169,13 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                               key: _model.formKey,
                               autovalidateMode: AutovalidateMode.always,
                               child: Padding(
-                                padding: const EdgeInsets.all(24.0),
+                                padding: EdgeInsets.all(24.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 0.0, 0.0, 12.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -187,7 +189,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Padding(
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(
                                                           0.0, 0.0, 0.0, 4.0),
                                                   child: Text(
@@ -196,10 +198,31 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                             context)
                                                         .headlineMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -236,7 +259,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 8.0),
                                           child: Container(
                                             width: 100.0,
@@ -256,7 +279,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: FlutterFlowIconButton(
                                             borderColor:
@@ -268,7 +291,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                             fillColor:
                                                 FlutterFlowTheme.of(context)
                                                     .primary,
-                                            icon: const FaIcon(
+                                            icon: FaIcon(
                                               FontAwesomeIcons.camera,
                                               color: Colors.white,
                                               size: 24.0,
@@ -354,15 +377,36 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Text(
                                             'Guia da Consulta',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'EB Garamond',
+                                                  font: GoogleFonts.ebGaramond(
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   letterSpacing: 0.0,
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -380,7 +424,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                   'MOD_CONSULTA_ESCOLHA_A_DATA_DA_CONSULTA_');
                                               logFirebaseEvent(
                                                   'Button_date_time_picker');
-                                              final datePickedDate =
+                                              final _datePickedDate =
                                                   await showDatePicker(
                                                 context: context,
                                                 initialDate:
@@ -404,14 +448,26 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                                 context)
                                                             .headlineLarge
                                                             .override(
-                                                              fontFamily:
-                                                                  'EB Garamond',
+                                                              font: GoogleFonts
+                                                                  .ebGaramond(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineLarge
+                                                                    .fontStyle,
+                                                              ),
                                                               fontSize: 32.0,
                                                               letterSpacing:
                                                                   0.0,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
+                                                              fontStyle: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineLarge
+                                                                  .fontStyle,
                                                             ),
                                                     pickerBackgroundColor:
                                                         FlutterFlowTheme.of(
@@ -438,40 +494,67 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                 },
                                               );
 
-                                              if (datePickedDate != null) {
+                                              if (_datePickedDate != null) {
                                                 safeSetState(() {
                                                   _model.datePicked = DateTime(
-                                                    datePickedDate.year,
-                                                    datePickedDate.month,
-                                                    datePickedDate.day,
+                                                    _datePickedDate.year,
+                                                    _datePickedDate.month,
+                                                    _datePickedDate.day,
                                                   );
+                                                });
+                                              } else if (_model.datePicked !=
+                                                  null) {
+                                                safeSetState(() {
+                                                  _model.datePicked =
+                                                      getCurrentTimestamp;
                                                 });
                                               }
                                             },
                                             text: 'Escolha a Data da Consulta',
-                                            icon: const Icon(
+                                            icon: Icon(
                                               Icons.date_range,
                                               size: 15.0,
                                             ),
                                             options: FFButtonOptions(
                                               height: 40.0,
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       16.0, 0.0, 16.0, 0.0),
-                                              iconPadding: const EdgeInsetsDirectional
+                                              iconPadding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primary,
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            'EB Garamond',
-                                                        color: Colors.white,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              textStyle: FlutterFlowTheme.of(
+                                                      context)
+                                                  .titleSmall
+                                                  .override(
+                                                    font:
+                                                        GoogleFonts.ebGaramond(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .fontStyle,
+                                                    ),
+                                                    color: Colors.white,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .titleSmall
+                                                            .fontStyle,
+                                                  ),
                                               elevation: 0.0,
                                               borderRadius:
                                                   BorderRadius.circular(8.0),
@@ -487,7 +570,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 5.0, 0.0, 8.0),
                                           child: Text(
                                             dateTimeFormat(
@@ -495,10 +578,22 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'EB Garamond',
+                                                  font: GoogleFonts.ebGaramond(
+                                                    fontWeight: FontWeight.bold,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                                   fontSize: 18.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.bold,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -510,7 +605,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: TextFormField(
                                               controller: _model
@@ -530,21 +625,63 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color: Colors.black,
                                                           fontSize: 18.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
                                                         ),
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .labelMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color: Colors.black,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMedium
+                                                                  .fontStyle,
                                                         ),
                                                 enabledBorder:
                                                     OutlineInputBorder(
@@ -594,14 +731,35 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                           0.0),
                                                 ),
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'EB Garamond',
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    font:
+                                                        GoogleFonts.ebGaramond(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
                                               validator: _model
                                                   .consultaFieldTextControllerValidator
                                                   .asValidator(context),
@@ -611,7 +769,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                       ],
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 0.0, 0.0),
                                       child: TextFormField(
                                         controller: _model
@@ -626,24 +784,62 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Resumo da Consulta:',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'EB Garamond',
-                                                    color: Colors.black,
-                                                    fontSize: 18.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'EB Garamond',
-                                                    color: Colors.black,
-                                                    fontSize: 22.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.ebGaramond(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.ebGaramond(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 22.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -689,8 +885,25 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'EB Garamond',
+                                              font: GoogleFonts.ebGaramond(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         maxLines: 3,
                                         validator: _model
@@ -699,7 +912,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -708,7 +921,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                         children: [
                                           Align(
                                             alignment:
-                                                const AlignmentDirectional(-1.0, 0.0),
+                                                AlignmentDirectional(-1.0, 0.0),
                                             child: Text(
                                               'Medicamentos',
                                               textAlign: TextAlign.start,
@@ -716,10 +929,24 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                       context)
                                                   .bodyMedium
                                                   .override(
-                                                    fontFamily: 'EB Garamond',
+                                                    font:
+                                                        GoogleFonts.ebGaramond(
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
+                                                    ),
                                                     fontSize: 18.0,
                                                     letterSpacing: 0.0,
                                                     fontWeight: FontWeight.bold,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
                                                   ),
                                             ),
                                           ),
@@ -769,7 +996,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -794,7 +1021,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
                                                 if (!snapshot.hasData) {
-                                                  return const Center(
+                                                  return Center(
                                                     child: SizedBox(
                                                       width: 50.0,
                                                       height: 50.0,
@@ -840,10 +1067,27 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                                   .of(context)
                                                               .bodyMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'EB Garamond',
+                                                                font: GoogleFonts
+                                                                    .ebGaramond(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                               ),
                                                         ),
                                                         FlutterFlowIconButton(
@@ -874,17 +1118,17 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                                           (alertDialogContext) {
                                                                         return AlertDialog(
                                                                           title:
-                                                                              const Text('Tem Certeza?'),
+                                                                              Text('Tem Certeza?'),
                                                                           content:
-                                                                              const Text('Deseja Remover o Medicamento?'),
+                                                                              Text('Deseja Remover o Medicamento?'),
                                                                           actions: [
                                                                             TextButton(
                                                                               onPressed: () => Navigator.pop(alertDialogContext, false),
-                                                                              child: const Text('Não'),
+                                                                              child: Text('Não'),
                                                                             ),
                                                                             TextButton(
                                                                               onPressed: () => Navigator.pop(alertDialogContext, true),
-                                                                              child: const Text('Sim'),
+                                                                              child: Text('Sim'),
                                                                             ),
                                                                           ],
                                                                         );
@@ -911,7 +1155,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 16.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -920,7 +1164,7 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                         children: [
                                           Expanded(
                                             child: Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 22.0, 0.0, 0.0),
                                               child: FFButtonWidget(
@@ -959,15 +1203,15 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                     builder:
                                                         (alertDialogContext) {
                                                       return AlertDialog(
-                                                        title: const Text('Sucesso'),
-                                                        content: const Text(
+                                                        title: Text('Sucesso'),
+                                                        content: Text(
                                                             'Consulta Modificada com Sucesso'),
                                                         actions: [
                                                           TextButton(
                                                             onPressed: () =>
                                                                 Navigator.pop(
                                                                     alertDialogContext),
-                                                            child: const Text('Ok'),
+                                                            child: Text('Ok'),
                                                           ),
                                                         ],
                                                       );
@@ -977,7 +1221,8 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                       'Button_navigate_to');
 
                                                   context.pushNamed(
-                                                    'CavaloConsultasMedicacoes',
+                                                    CavaloConsultasMedicacoesWidget
+                                                        .routeName,
                                                     queryParameters: {
                                                       'cavalo': serializeParam(
                                                         widget.cavalo,
@@ -994,27 +1239,48 @@ class _ModConsultaWidgetState extends State<ModConsultaWidget>
                                                               .width *
                                                           0.5,
                                                   height: 50.0,
-                                                  padding: const EdgeInsetsDirectional
+                                                  padding: EdgeInsetsDirectional
                                                       .fromSTEB(30.0, 10.0,
                                                           30.0, 10.0),
                                                   iconPadding:
-                                                      const EdgeInsetsDirectional
+                                                      EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
                                                               0.0, 0.0),
-                                                  color: const Color(0xFFBAAD72),
+                                                  color: Color(0xFFBAAD72),
                                                   textStyle:
                                                       FlutterFlowTheme.of(
                                                               context)
                                                           .titleSmall
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 22.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
                                                           ),
                                                   elevation: 3.0,
-                                                  borderSide: const BorderSide(
+                                                  borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),

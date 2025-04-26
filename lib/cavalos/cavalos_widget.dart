@@ -5,14 +5,19 @@ import '/components/novo_cavalo_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:text_search/text_search.dart';
 import 'cavalos_model.dart';
 export 'cavalos_model.dart';
 
 class CavalosWidget extends StatefulWidget {
   const CavalosWidget({super.key});
+
+  static String routeName = 'Cavalos';
+  static String routePath = '/cavalos';
 
   @override
   State<CavalosWidget> createState() => _CavalosWidgetState();
@@ -69,7 +74,7 @@ class _CavalosWidgetState extends State<CavalosWidget> {
                   },
                   child: Padding(
                     padding: MediaQuery.viewInsetsOf(context),
-                    child: const NovoCavaloWidget(),
+                    child: NovoCavaloWidget(),
                   ),
                 );
               },
@@ -91,7 +96,7 @@ class _CavalosWidgetState extends State<CavalosWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -100,19 +105,28 @@ class _CavalosWidgetState extends State<CavalosWidget> {
               logFirebaseEvent('CAVALOS_arrow_back_rounded_ICN_ON_TAP');
               logFirebaseEvent('IconButton_navigate_to');
 
-              context.pushNamed('NewHome');
+              context.pushNamed(NewHomeWidget.routeName);
             },
           ),
           title: Text(
             'Cavalos',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'EB Garamond',
+                  font: GoogleFonts.ebGaramond(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -129,16 +143,16 @@ class _CavalosWidgetState extends State<CavalosWidget> {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 8.0, 8.0, 0.0),
-                          child: SizedBox(
+                          child: Container(
                             width: 200.0,
                             child: TextFormField(
                               controller: _model.campoBuscaTextController,
                               focusNode: _model.campoBuscaFocusNode,
                               onChanged: (_) => EasyDebounce.debounce(
                                 '_model.campoBuscaTextController',
-                                const Duration(milliseconds: 2000),
+                                Duration(milliseconds: 2000),
                                 () async {
                                   logFirebaseEvent(
                                       'CAVALOS_CampoBusca_ON_TEXTFIELD_CHANGE');
@@ -171,19 +185,45 @@ class _CavalosWidgetState extends State<CavalosWidget> {
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'EB Garamond',
+                                      font: GoogleFonts.ebGaramond(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
                                       color: Colors.black,
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
                                     ),
                                 hintText: 'Digite o nome do Cavalo',
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
-                                      fontFamily: 'EB Garamond',
+                                      font: GoogleFonts.ebGaramond(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
+                                      ),
                                       color: Colors.black,
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -218,8 +258,21 @@ class _CavalosWidgetState extends State<CavalosWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                               validator: _model
                                   .campoBuscaTextControllerValidator
@@ -273,7 +326,7 @@ class _CavalosWidgetState extends State<CavalosWidget> {
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
-                      return const Center(
+                      return Center(
                         child: SizedBox(
                           width: 50.0,
                           height: 50.0,

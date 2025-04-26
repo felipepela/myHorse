@@ -5,12 +5,17 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'home_tratador_model.dart';
 export 'home_tratador_model.dart';
 
 class HomeTratadorWidget extends StatefulWidget {
   const HomeTratadorWidget({super.key});
+
+  static String routeName = 'HomeTratador';
+  static String routePath = '/homeTratador';
 
   @override
   State<HomeTratadorWidget> createState() => _HomeTratadorWidgetState();
@@ -52,7 +57,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return const Scaffold(
+          return Scaffold(
             backgroundColor: Color(0xFFF1F4F8),
             body: Center(
               child: SizedBox(
@@ -79,20 +84,33 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
             onWillPop: () async => false,
             child: Scaffold(
               key: scaffoldKey,
-              backgroundColor: const Color(0xFFF1F4F8),
+              backgroundColor: Color(0xFFF1F4F8),
               appBar: AppBar(
                 backgroundColor: FlutterFlowTheme.of(context).primary,
                 automaticallyImplyLeading: false,
                 title: Text(
                   'Home - Tratador',
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
-                        fontFamily: 'EB Garamond',
+                        font: GoogleFonts.ebGaramond(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .headlineMedium
+                              .fontStyle,
+                        ),
                         color: Colors.white,
                         fontSize: 22.0,
                         letterSpacing: 0.0,
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontWeight,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
                       ),
                 ),
-                actions: const [],
+                actions: [],
                 centerTitle: false,
                 elevation: 2.0,
               ),
@@ -103,7 +121,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 12.0),
+                          EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 12.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -122,7 +140,8 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                         'HOME_TRATADOR_PAGE_Image_1bgvr8e4_ON_TAP');
                                     logFirebaseEvent('Image_navigate_to');
 
-                                    context.pushNamed('ProfileTratador');
+                                    context.pushNamed(
+                                        ProfileTratadorWidget.routeName);
                                   },
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(80.0),
@@ -149,7 +168,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 0.0, 0.0),
                                 child: AuthUserStreamWidget(
                                   builder: (context) => Text(
@@ -160,9 +179,26 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'EB Garamond',
+                                          font: GoogleFonts.ebGaramond(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           fontSize: 20.0,
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -189,7 +225,8 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                   await authManager.signOut();
                                   GoRouter.of(context).clearRedirectLocation();
 
-                                  context.goNamedAuth('Login', context.mounted);
+                                  context.goNamedAuth(
+                                      LoginWidget.routeName, context.mounted);
                                 },
                               ),
                             ],
@@ -200,7 +237,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                     Container(
                       width: double.infinity,
                       height: 170.0,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         color: Color(0xFFF1F4F8),
                       ),
                       child: StreamBuilder<List<CavalosProfissionaisRecord>>(
@@ -214,7 +251,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
-                            return const Center(
+                            return Center(
                               child: SizedBox(
                                 width: 50.0,
                                 height: 50.0,
@@ -247,7 +284,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                   listViewCavalosProfissionaisRecordList[
                                       listViewIndex];
                               return Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 12.0, 12.0, 12.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -260,7 +297,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                     logFirebaseEvent('Container_navigate_to');
 
                                     context.pushNamed(
-                                      'CavaloDetalheTratador',
+                                      CavaloDetalheTratadorWidget.routeName,
                                       queryParameters: {
                                         'cavalo': serializeParam(
                                           listViewCavalosProfissionaisRecord
@@ -275,7 +312,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                     height: 100.0,
                                     decoration: BoxDecoration(
                                       color: Colors.white,
-                                      boxShadow: const [
+                                      boxShadow: [
                                         BoxShadow(
                                           blurRadius: 4.0,
                                           color: Color(0x34090F13),
@@ -288,7 +325,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(12.0),
+                                      padding: EdgeInsets.all(12.0),
                                       child: Column(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -301,7 +338,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
                                               if (!snapshot.hasData) {
-                                                return const Center(
+                                                return Center(
                                                   child: SizedBox(
                                                     width: 50.0,
                                                     height: 50.0,
@@ -334,7 +371,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                           ),
                                           Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 8.0, 0.0, 0.0),
                                             child: StreamBuilder<HorsesRecord>(
                                               stream: HorsesRecord.getDocument(
@@ -343,7 +380,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                               builder: (context, snapshot) {
                                                 // Customize what your widget looks like when it's loading.
                                                 if (!snapshot.hasData) {
-                                                  return const Center(
+                                                  return Center(
                                                     child: SizedBox(
                                                       width: 50.0,
                                                       height: 50.0,
@@ -368,14 +405,27 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
+                                                        font: GoogleFonts
+                                                            .plusJakartaSans(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 );
                                               },
@@ -404,29 +454,94 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                       },
                       titleStyle:
                           FlutterFlowTheme.of(context).titleLarge.override(
-                                fontFamily: 'EB Garamond',
+                                font: GoogleFonts.ebGaramond(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleLarge
+                                    .fontStyle,
                               ),
                       dayOfWeekStyle:
                           FlutterFlowTheme.of(context).bodyLarge.override(
-                                fontFamily: 'EB Garamond',
+                                font: GoogleFonts.ebGaramond(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .fontStyle,
+                                ),
                                 fontSize: 12.0,
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontStyle,
                               ),
                       dateStyle:
                           FlutterFlowTheme.of(context).bodyMedium.override(
-                                fontFamily: 'EB Garamond',
+                                font: GoogleFonts.ebGaramond(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
                               ),
                       selectedDateStyle:
                           FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'EB Garamond',
+                                font: GoogleFonts.ebGaramond(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .fontStyle,
                               ),
                       inactiveDateStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
-                                fontFamily: 'EB Garamond',
+                                font: GoogleFonts.ebGaramond(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .fontStyle,
+                                ),
                                 letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
                               ),
                     ),
                     if ((homeTratadorCavalosProfissionaisRecordList
@@ -454,7 +569,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
-                            return const Center(
+                            return Center(
                               child: SizedBox(
                                 width: 50.0,
                                 height: 50.0,
@@ -487,14 +602,14 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                   listViewCavalosAtividadesRecordList[
                                       listViewIndex];
                               return Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 4.0, 16.0, 8.0),
                                 child: Container(
                                   width: double.infinity,
                                   height: 90.0,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    boxShadow: const [
+                                    boxShadow: [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x32000000),
@@ -507,7 +622,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 8.0, 0.0),
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -516,7 +631,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                       children: [
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: StreamBuilder<UsersRecord>(
                                             stream: UsersRecord.getDocument(
@@ -525,7 +640,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
                                               if (!snapshot.hasData) {
-                                                return const Center(
+                                                return Center(
                                                   child: SizedBox(
                                                     width: 50.0,
                                                     height: 50.0,
@@ -567,7 +682,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   5.0, 0.0, 0.0, 0.0),
                                           child: StreamBuilder<HorsesRecord>(
                                             stream: HorsesRecord.getDocument(
@@ -576,7 +691,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                             builder: (context, snapshot) {
                                               // Customize what your widget looks like when it's loading.
                                               if (!snapshot.hasData) {
-                                                return const Center(
+                                                return Center(
                                                   child: SizedBox(
                                                     width: 50.0,
                                                     height: 50.0,
@@ -619,7 +734,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     12.0, 0.0, 0.0, 0.0),
                                             child: Column(
                                               mainAxisSize: MainAxisSize.max,
@@ -638,14 +753,27 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
+                                                        font: GoogleFonts
+                                                            .plusJakartaSans(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                                 Text(
@@ -655,14 +783,27 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'Plus Jakarta Sans',
+                                                        font: GoogleFonts
+                                                            .plusJakartaSans(
+                                                          fontWeight:
+                                                              FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         color:
-                                                            const Color(0xFF14181B),
+                                                            Color(0xFF14181B),
                                                         fontSize: 14.0,
                                                         letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                                 Row(
@@ -678,7 +819,7 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                                           (context, snapshot) {
                                                         // Customize what your widget looks like when it's loading.
                                                         if (!snapshot.hasData) {
-                                                          return const Center(
+                                                          return Center(
                                                             child: SizedBox(
                                                               width: 50.0,
                                                               height: 50.0,
@@ -704,9 +845,17 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                                                   .of(context)
                                                               .labelMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Plus Jakarta Sans',
-                                                                color: const Color(
+                                                                font: GoogleFonts
+                                                                    .plusJakartaSans(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -714,6 +863,10 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
                                                               ),
                                                         );
                                                       },
@@ -732,7 +885,8 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                                 'Button_navigate_to');
 
                                             context.pushNamed(
-                                              'CavaloDetalheAtividade',
+                                              CavaloDetalheAtividadeWidget
+                                                  .routeName,
                                               queryParameters: {
                                                 'atividadeID': serializeParam(
                                                   listViewCavalosAtividadesRecord
@@ -752,10 +906,10 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                             width: 70.0,
                                             height: 36.0,
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             iconPadding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
                                             color: FlutterFlowTheme.of(context)
                                                 .primary,
@@ -763,15 +917,28 @@ class _HomeTratadorWidgetState extends State<HomeTratadorWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .override(
-                                                      fontFamily: 'Outfit',
+                                                      font: GoogleFonts.outfit(
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
+                                                      ),
                                                       color: Colors.white,
                                                       fontSize: 14.0,
                                                       letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.normal,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .fontStyle,
                                                     ),
                                             elevation: 2.0,
-                                            borderSide: const BorderSide(
+                                            borderSide: BorderSide(
                                               color: Colors.transparent,
                                               width: 1.0,
                                             ),

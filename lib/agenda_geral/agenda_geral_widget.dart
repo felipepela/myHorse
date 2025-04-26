@@ -6,12 +6,17 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/pages/tratador/view_atividade/view_atividade_widget.dart';
 import '/pages/veterinrio/view_consulta/view_consulta_widget.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'agenda_geral_model.dart';
 export 'agenda_geral_model.dart';
 
 class AgendaGeralWidget extends StatefulWidget {
   const AgendaGeralWidget({super.key});
+
+  static String routeName = 'AgendaGeral';
+  static String routePath = '/agendaGeral';
 
   @override
   State<AgendaGeralWidget> createState() => _AgendaGeralWidgetState();
@@ -50,7 +55,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return const Scaffold(
+          return Scaffold(
             backgroundColor: Colors.white,
             body: Center(
               child: SizedBox(
@@ -83,7 +88,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                 borderRadius: 30.0,
                 borderWidth: 1.0,
                 buttonSize: 60.0,
-                icon: const Icon(
+                icon: Icon(
                   Icons.arrow_back_rounded,
                   color: Colors.white,
                   size: 30.0,
@@ -92,18 +97,27 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                   logFirebaseEvent('AGENDA_GERAL_arrow_back_rounded_ICN_ON_T');
                   logFirebaseEvent('IconButton_navigate_to');
 
-                  context.pushNamed('NewHome');
+                  context.pushNamed(NewHomeWidget.routeName);
                 },
               ),
               title: Text(
                 'Agenda Completa',
                 style: FlutterFlowTheme.of(context).titleMedium.override(
-                      fontFamily: 'EB Garamond',
+                      font: GoogleFonts.ebGaramond(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).titleMedium.fontStyle,
+                      ),
                       fontSize: 22.0,
                       letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).titleMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).titleMedium.fontStyle,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: true,
               elevation: 2.0,
             ),
@@ -115,7 +129,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                   child: Container(
                     width: MediaQuery.sizeOf(context).width * 1.0,
                     height: 100.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0xFFF1F4F8),
                     ),
                     child: SingleChildScrollView(
@@ -125,7 +139,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                         children: [
                           Container(
                             width: double.infinity,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               color: Colors.white,
                               boxShadow: [
                                 BoxShadow(
@@ -150,47 +164,87 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                               titleStyle: FlutterFlowTheme.of(context)
                                   .titleLarge
                                   .override(
-                                    fontFamily: 'Outfit',
-                                    color: const Color(0xFF14181B),
+                                    font: GoogleFonts.outfit(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleLarge
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0xFF14181B),
                                     fontSize: 22.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .fontStyle,
                                   ),
                               dayOfWeekStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF57636C),
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0xFF57636C),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
                                   ),
                               dateStyle: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: const Color(0xFF14181B),
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    color: Color(0xFF14181B),
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                               selectedDateStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Plus Jakarta Sans',
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.w500,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w500,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
                                   ),
                               inactiveDateStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Plus Jakarta Sans',
+                                    font: GoogleFonts.plusJakartaSans(
+                                      fontWeight: FontWeight.normal,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 14.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
                                   ),
                             ),
                           ),
@@ -199,7 +253,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 12.0, 0.0, 0.0),
                                 child:
                                     StreamBuilder<List<CavalosConsultasRecord>>(
@@ -225,7 +279,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                   builder: (context, snapshot) {
                                     // Customize what your widget looks like when it's loading.
                                     if (!snapshot.hasData) {
-                                      return const Center(
+                                      return Center(
                                         child: SizedBox(
                                           width: 50.0,
                                           height: 50.0,
@@ -256,13 +310,13 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                 listViewIndex];
                                         return Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   16.0, 0.0, 16.0, 12.0),
                                           child: Container(
                                             width: 100.0,
                                             decoration: BoxDecoration(
                                               color: Colors.white,
-                                              boxShadow: const [
+                                              boxShadow: [
                                                 BoxShadow(
                                                   blurRadius: 3.0,
                                                   color: Color(0x33000000),
@@ -276,7 +330,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                   BorderRadius.circular(8.0),
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.all(8.0),
+                                              padding: EdgeInsets.all(8.0),
                                               child: Row(
                                                 mainAxisSize: MainAxisSize.max,
                                                 mainAxisAlignment:
@@ -295,7 +349,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -312,7 +366,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                             // Customize what your widget looks like when it's loading.
                                                             if (!snapshot
                                                                 .hasData) {
-                                                              return const Center(
+                                                              return Center(
                                                                 child: SizedBox(
                                                                   width: 50.0,
                                                                   height: 50.0,
@@ -364,7 +418,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                     children: [
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     0.0,
@@ -381,7 +435,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                             // Customize what your widget looks like when it's loading.
                                                             if (!snapshot
                                                                 .hasData) {
-                                                              return const Center(
+                                                              return Center(
                                                                 child: SizedBox(
                                                                   width: 50.0,
                                                                   height: 50.0,
@@ -438,7 +492,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           4.0,
                                                                           0.0,
@@ -454,13 +508,23 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'EB Garamond',
+                                                                      font: GoogleFonts
+                                                                          .ebGaramond(
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       letterSpacing:
                                                                           0.0,
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w600,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ),
@@ -472,7 +536,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           4.0,
                                                                           0.0,
@@ -489,7 +553,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                                   // Customize what your widget looks like when it's loading.
                                                                   if (!snapshot
                                                                       .hasData) {
-                                                                    return const Center(
+                                                                    return Center(
                                                                       child:
                                                                           SizedBox(
                                                                         width:
@@ -525,10 +589,21 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                                             context)
                                                                         .bodyMedium
                                                                         .override(
-                                                                          fontFamily:
-                                                                              'EB Garamond',
+                                                                          font:
+                                                                              GoogleFonts.ebGaramond(
+                                                                            fontWeight:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                                                                            fontStyle:
+                                                                                FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                                                                          ),
                                                                           letterSpacing:
                                                                               0.0,
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
                                                                         ),
                                                                   );
                                                                 },
@@ -538,7 +613,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       4.0,
@@ -551,7 +626,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                             children: [
                                                               Padding(
                                                                 padding:
-                                                                    const EdgeInsetsDirectional
+                                                                    EdgeInsetsDirectional
                                                                         .fromSTEB(
                                                                             4.0,
                                                                             0.0,
@@ -566,10 +641,23 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'EB Garamond',
+                                                                        font: GoogleFonts
+                                                                            .ebGaramond(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 ),
                                                               ),
@@ -642,12 +730,12 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                             BoxShape.rectangle,
                                                         border: Border.all(
                                                           color:
-                                                              const Color(0xFFE0E3E7),
+                                                              Color(0xFFE0E3E7),
                                                           width: 1.0,
                                                         ),
                                                       ),
                                                       alignment:
-                                                          const AlignmentDirectional(
+                                                          AlignmentDirectional(
                                                               0.0, 0.0),
                                                       child: Icon(
                                                         Icons.more_vert_sharp,
@@ -694,7 +782,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
-                                    return const Center(
+                                    return Center(
                                       child: SizedBox(
                                         width: 50.0,
                                         height: 50.0,
@@ -724,13 +812,13 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                           listViewCavalosAtividadesEvidenciasRecordList[
                                               listViewIndex];
                                       return Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             16.0, 0.0, 16.0, 12.0),
                                         child: Container(
                                           width: 100.0,
                                           decoration: BoxDecoration(
                                             color: Colors.white,
-                                            boxShadow: const [
+                                            boxShadow: [
                                               BoxShadow(
                                                 blurRadius: 3.0,
                                                 color: Color(0x33000000),
@@ -744,7 +832,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                 BorderRadius.circular(8.0),
                                           ),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: EdgeInsets.all(8.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -761,7 +849,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -777,7 +865,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                           // Customize what your widget looks like when it's loading.
                                                           if (!snapshot
                                                               .hasData) {
-                                                            return const Center(
+                                                            return Center(
                                                               child: SizedBox(
                                                                 width: 50.0,
                                                                 height: 50.0,
@@ -827,7 +915,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   0.0,
                                                                   0.0,
@@ -844,7 +932,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                           // Customize what your widget looks like when it's loading.
                                                           if (!snapshot
                                                               .hasData) {
-                                                            return const Center(
+                                                            return Center(
                                                               child: SizedBox(
                                                                 width: 50.0,
                                                                 height: 50.0,
@@ -901,7 +989,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         4.0,
                                                                         0.0,
@@ -918,7 +1006,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                                 // Customize what your widget looks like when it's loading.
                                                                 if (!snapshot
                                                                     .hasData) {
-                                                                  return const Center(
+                                                                  return Center(
                                                                     child:
                                                                         SizedBox(
                                                                       width:
@@ -952,12 +1040,21 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'EB Garamond',
+                                                                        font: GoogleFonts
+                                                                            .ebGaramond(
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         letterSpacing:
                                                                             0.0,
                                                                         fontWeight:
                                                                             FontWeight.w600,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 );
                                                               },
@@ -971,7 +1068,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                         children: [
                                                           Padding(
                                                             padding:
-                                                                const EdgeInsetsDirectional
+                                                                EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         4.0,
                                                                         0.0,
@@ -988,7 +1085,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                                 // Customize what your widget looks like when it's loading.
                                                                 if (!snapshot
                                                                     .hasData) {
-                                                                  return const Center(
+                                                                  return Center(
                                                                     child:
                                                                         SizedBox(
                                                                       width:
@@ -1025,10 +1122,23 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                                           context)
                                                                       .bodyMedium
                                                                       .override(
-                                                                        fontFamily:
-                                                                            'EB Garamond',
+                                                                        font: GoogleFonts
+                                                                            .ebGaramond(
+                                                                          fontWeight: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontWeight,
+                                                                          fontStyle: FlutterFlowTheme.of(context)
+                                                                              .bodyMedium
+                                                                              .fontStyle,
+                                                                        ),
                                                                         letterSpacing:
                                                                             0.0,
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
                                                                       ),
                                                                 );
                                                               },
@@ -1038,7 +1148,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                       ),
                                                       Padding(
                                                         padding:
-                                                            const EdgeInsetsDirectional
+                                                            EdgeInsetsDirectional
                                                                 .fromSTEB(
                                                                     0.0,
                                                                     4.0,
@@ -1050,7 +1160,7 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           4.0,
                                                                           0.0,
@@ -1065,10 +1175,25 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'EB Garamond',
+                                                                      font: GoogleFonts
+                                                                          .ebGaramond(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ),
@@ -1139,12 +1264,12 @@ class _AgendaGeralWidgetState extends State<AgendaGeralWidget> {
                                                       shape: BoxShape.rectangle,
                                                       border: Border.all(
                                                         color:
-                                                            const Color(0xFFE0E3E7),
+                                                            Color(0xFFE0E3E7),
                                                         width: 1.0,
                                                       ),
                                                     ),
                                                     alignment:
-                                                        const AlignmentDirectional(
+                                                        AlignmentDirectional(
                                                             0.0, 0.0),
                                                     child: Icon(
                                                       Icons.more_vert_sharp,

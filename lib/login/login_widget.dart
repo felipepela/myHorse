@@ -1,17 +1,23 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/politicas_widget.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'login_model.dart';
 export 'login_model.dart';
 
 class LoginWidget extends StatefulWidget {
   const LoginWidget({super.key});
+
+  static String routeName = 'Login';
+  static String routePath = '/login';
 
   @override
   State<LoginWidget> createState() => _LoginWidgetState();
@@ -36,6 +42,7 @@ class _LoginWidgetState extends State<LoginWidget>
       length: 2,
       initialIndex: 1,
     )..addListener(() => safeSetState(() {}));
+
     _model.displayNameFieldTextController ??= TextEditingController();
     _model.displayNameFieldFocusNode ??= FocusNode();
 
@@ -70,15 +77,15 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.easeInOut,
             delay: 0.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(0.0, 80.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 80.0),
+            end: Offset(0.0, 0.0),
           ),
           ScaleEffect(
             curve: Curves.easeInOut,
             delay: 150.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(0.8, 0.8),
-            end: const Offset(1.0, 1.0),
+            begin: Offset(0.8, 0.8),
+            end: Offset(1.0, 1.0),
           ),
         ],
       ),
@@ -97,8 +104,8 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.easeInOut,
             delay: 300.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(0.0, 20.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -117,8 +124,8 @@ class _LoginWidgetState extends State<LoginWidget>
             curve: Curves.easeInOut,
             delay: 300.0.ms,
             duration: 400.0.ms,
-            begin: const Offset(0.0, 20.0),
-            end: const Offset(0.0, 0.0),
+            begin: Offset(0.0, 20.0),
+            end: Offset(0.0, 0.0),
           ),
         ],
       ),
@@ -151,7 +158,7 @@ class _LoginWidgetState extends State<LoginWidget>
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.asset(
@@ -165,20 +172,29 @@ class _LoginWidgetState extends State<LoginWidget>
               Text(
                 'v 0.27',
                 style: FlutterFlowTheme.of(context).bodyMedium.override(
-                      fontFamily: 'EB Garamond',
+                      font: GoogleFonts.ebGaramond(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
                       letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                     ),
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(0.0, 0.0),
+                  alignment: AlignmentDirectional(0.0, 0.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 12.0, 0.0, 12.0),
                     child: Container(
                       width: double.infinity,
                       height: MediaQuery.sizeOf(context).height * 0.8,
-                      constraints: const BoxConstraints(
+                      constraints: BoxConstraints(
                         maxWidth: 530.0,
                       ),
                       decoration: BoxDecoration(
@@ -186,7 +202,7 @@ class _LoginWidgetState extends State<LoginWidget>
                       ),
                       child: Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                         child: Column(
                           children: [
                             Expanded(
@@ -194,13 +210,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                 controller: _model.tabBarController,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, -1.0),
+                                    alignment: AlignmentDirectional(0.0, -1.0),
                                     child: Form(
                                       key: _model.formKey1,
                                       autovalidateMode:
                                           AutovalidateMode.disabled,
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             24.0, 16.0, 24.0, 0.0),
                                         child: SingleChildScrollView(
                                           child: Column(
@@ -209,10 +225,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 16.0),
-                                                child: SizedBox(
+                                                child: Container(
                                                   width: double.infinity,
                                                   child: TextFormField(
                                                     controller: _model
@@ -220,7 +236,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     focusNode: _model
                                                         .displayNameFieldFocusNode,
                                                     autofocus: false,
-                                                    autofillHints: const [
+                                                    autofillHints: [
                                                       AutofillHints.email
                                                     ],
                                                     obscureText: false,
@@ -231,10 +247,27 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .labelLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'EB Garamond',
+                                                                font: GoogleFonts
+                                                                    .ebGaramond(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontStyle,
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
@@ -290,15 +323,36 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .primaryBackground,
                                                       contentPadding:
-                                                          const EdgeInsets.all(24.0),
+                                                          EdgeInsets.all(24.0),
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontStyle,
                                                         ),
                                                     keyboardType: TextInputType
                                                         .emailAddress,
@@ -313,10 +367,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 16.0),
-                                                child: SizedBox(
+                                                child: Container(
                                                   width: double.infinity,
                                                   child: TextFormField(
                                                     controller: _model
@@ -324,7 +378,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     focusNode: _model
                                                         .emailAddressFieldFocusNode,
                                                     autofocus: false,
-                                                    autofillHints: const [
+                                                    autofillHints: [
                                                       AutofillHints.email
                                                     ],
                                                     obscureText: false,
@@ -335,10 +389,27 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .labelLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'EB Garamond',
+                                                                font: GoogleFonts
+                                                                    .ebGaramond(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontStyle,
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
@@ -394,15 +465,36 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .primaryBackground,
                                                       contentPadding:
-                                                          const EdgeInsets.all(24.0),
+                                                          EdgeInsets.all(24.0),
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontStyle,
                                                         ),
                                                     keyboardType: TextInputType
                                                         .emailAddress,
@@ -417,10 +509,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 16.0),
-                                                child: SizedBox(
+                                                child: Container(
                                                   width: double.infinity,
                                                   child: TextFormField(
                                                     controller: _model
@@ -428,7 +520,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     focusNode: _model
                                                         .passwordCreateFocusNode,
                                                     autofocus: false,
-                                                    autofillHints: const [
+                                                    autofillHints: [
                                                       AutofillHints.password
                                                     ],
                                                     obscureText: !_model
@@ -440,10 +532,27 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .labelLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'EB Garamond',
+                                                                font: GoogleFonts
+                                                                    .ebGaramond(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontStyle,
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
@@ -499,7 +608,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .primaryBackground,
                                                       contentPadding:
-                                                          const EdgeInsets.all(24.0),
+                                                          EdgeInsets.all(24.0),
                                                       suffixIcon: InkWell(
                                                         onTap: () =>
                                                             safeSetState(
@@ -528,9 +637,30 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontStyle,
                                                         ),
                                                     cursorColor:
                                                         FlutterFlowTheme.of(
@@ -543,10 +673,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 16.0),
-                                                child: SizedBox(
+                                                child: Container(
                                                   width: double.infinity,
                                                   child: TextFormField(
                                                     controller: _model
@@ -554,7 +684,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     focusNode: _model
                                                         .passwordCreateConfirmFocusNode,
                                                     autofocus: false,
-                                                    autofillHints: const [
+                                                    autofillHints: [
                                                       AutofillHints.password
                                                     ],
                                                     obscureText: !_model
@@ -567,10 +697,27 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .labelLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'EB Garamond',
+                                                                font: GoogleFonts
+                                                                    .ebGaramond(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontStyle,
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
@@ -626,7 +773,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .primaryBackground,
                                                       contentPadding:
-                                                          const EdgeInsets.all(24.0),
+                                                          EdgeInsets.all(24.0),
                                                       suffixIcon: InkWell(
                                                         onTap: () =>
                                                             safeSetState(
@@ -655,9 +802,30 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontStyle,
                                                         ),
                                                     cursorColor:
                                                         FlutterFlowTheme.of(
@@ -670,105 +838,180 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
-                                                child: FFButtonWidget(
-                                                  onPressed: () async {
-                                                    logFirebaseEvent(
-                                                        'LOGIN_PAGE_Save-Proprietario_ON_TAP');
-                                                    logFirebaseEvent(
-                                                        'Save-Proprietario_validate_form');
-                                                    if (_model.formKey1
-                                                                .currentState ==
-                                                            null ||
-                                                        !_model.formKey1
-                                                            .currentState!
-                                                            .validate()) {
-                                                      return;
-                                                    }
-                                                    logFirebaseEvent(
-                                                        'Save-Proprietario_auth');
-                                                    GoRouter.of(context)
-                                                        .prepareAuthEvent();
-                                                    if (_model
-                                                            .passwordCreateTextController
-                                                            .text !=
-                                                        _model
-                                                            .passwordCreateConfirmTextController
-                                                            .text) {
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .showSnackBar(
-                                                        const SnackBar(
-                                                          content: Text(
-                                                            'Passwords don\'t match!',
-                                                          ),
-                                                        ),
+                                                child: Builder(
+                                                  builder: (context) =>
+                                                      FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'LOGIN_PAGE_Save-Proprietario_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Save-Proprietario_validate_form');
+                                                      if (_model.formKey1
+                                                                  .currentState ==
+                                                              null ||
+                                                          !_model.formKey1
+                                                              .currentState!
+                                                              .validate()) {
+                                                        return;
+                                                      }
+                                                      logFirebaseEvent(
+                                                          'Save-Proprietario_alert_dialog');
+                                                      await showDialog(
+                                                        context: context,
+                                                        builder:
+                                                            (dialogContext) {
+                                                          return Dialog(
+                                                            elevation: 0,
+                                                            insetPadding:
+                                                                EdgeInsets.zero,
+                                                            backgroundColor:
+                                                                Colors
+                                                                    .transparent,
+                                                            alignment: AlignmentDirectional(
+                                                                    0.0, 0.0)
+                                                                .resolve(
+                                                                    Directionality.of(
+                                                                        context)),
+                                                            child:
+                                                                GestureDetector(
+                                                              onTap: () {
+                                                                FocusScope.of(
+                                                                        dialogContext)
+                                                                    .unfocus();
+                                                                FocusManager
+                                                                    .instance
+                                                                    .primaryFocus
+                                                                    ?.unfocus();
+                                                              },
+                                                              child: Container(
+                                                                height: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .height *
+                                                                    0.7,
+                                                                width: MediaQuery.sizeOf(
+                                                                            context)
+                                                                        .width *
+                                                                    0.8,
+                                                                child:
+                                                                    PoliticasWidget(),
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },
                                                       );
-                                                      return;
-                                                    }
 
-                                                    final user = await authManager
-                                                        .createAccountWithEmail(
-                                                      context,
-                                                      _model
-                                                          .emailAddressFieldTextController
-                                                          .text,
-                                                      _model
-                                                          .passwordCreateTextController
-                                                          .text,
-                                                    );
-                                                    if (user == null) {
-                                                      return;
-                                                    }
+                                                      logFirebaseEvent(
+                                                          'Save-Proprietario_auth');
+                                                      GoRouter.of(context)
+                                                          .prepareAuthEvent();
+                                                      if (_model
+                                                              .passwordCreateTextController
+                                                              .text !=
+                                                          _model
+                                                              .passwordCreateConfirmTextController
+                                                              .text) {
+                                                        ScaffoldMessenger.of(
+                                                                context)
+                                                            .showSnackBar(
+                                                          SnackBar(
+                                                            content: Text(
+                                                              'Passwords don\'t match!',
+                                                            ),
+                                                          ),
+                                                        );
+                                                        return;
+                                                      }
 
-                                                    await UsersRecord.collection
-                                                        .doc(user.uid)
-                                                        .update(
-                                                            createUsersRecordData(
-                                                          displayName: _model
-                                                              .displayNameFieldTextController
-                                                              .text,
-                                                        ));
+                                                      final user = await authManager
+                                                          .createAccountWithEmail(
+                                                        context,
+                                                        _model
+                                                            .emailAddressFieldTextController
+                                                            .text,
+                                                        _model
+                                                            .passwordCreateTextController
+                                                            .text,
+                                                      );
+                                                      if (user == null) {
+                                                        return;
+                                                      }
 
-                                                    context.goNamedAuth(
-                                                        'NewHome',
-                                                        context.mounted);
-                                                  },
-                                                  text: 'Cadastrar',
-                                                  options: FFButtonOptions(
-                                                    width: 230.0,
-                                                    height: 52.0,
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(
-                                                                30.0,
-                                                                10.0,
-                                                                30.0,
-                                                                10.0),
-                                                    iconPadding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                0.0, 0.0),
-                                                    color: const Color(0xFF041E3A),
-                                                    textStyle: FlutterFlowTheme
-                                                            .of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
-                                                          color: Colors.white,
-                                                          fontSize: 22.0,
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                                    elevation: 3.0,
-                                                    borderSide: const BorderSide(
-                                                      color: Colors.transparent,
-                                                      width: 1.0,
+                                                      await UsersRecord
+                                                          .collection
+                                                          .doc(user.uid)
+                                                          .update(
+                                                              createUsersRecordData(
+                                                            displayName: _model
+                                                                .displayNameFieldTextController
+                                                                .text,
+                                                          ));
+
+                                                      context.goNamedAuth(
+                                                          NewHomeWidget
+                                                              .routeName,
+                                                          context.mounted);
+                                                    },
+                                                    text: 'Cadastrar',
+                                                    options: FFButtonOptions(
+                                                      width: 230.0,
+                                                      height: 52.0,
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  30.0,
+                                                                  10.0,
+                                                                  30.0,
+                                                                  10.0),
+                                                      iconPadding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: Color(0xFF041E3A),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                font: GoogleFonts
+                                                                    .ebGaramond(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmall
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 22.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            Colors.transparent,
+                                                        width: 1.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              0.0),
                                                     ),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            0.0),
                                                   ),
                                                 ),
                                               ),
@@ -780,13 +1023,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                     ),
                                   ),
                                   Align(
-                                    alignment: const AlignmentDirectional(0.0, -1.0),
+                                    alignment: AlignmentDirectional(0.0, -1.0),
                                     child: Form(
                                       key: _model.formKey2,
                                       autovalidateMode:
                                           AutovalidateMode.disabled,
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             24.0, 16.0, 24.0, 0.0),
                                         child: SingleChildScrollView(
                                           child: Column(
@@ -795,10 +1038,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 16.0),
-                                                child: SizedBox(
+                                                child: Container(
                                                   width: double.infinity,
                                                   child: TextFormField(
                                                     controller: _model
@@ -806,7 +1049,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     focusNode: _model
                                                         .emailAddressFocusNode,
                                                     autofocus: false,
-                                                    autofillHints: const [
+                                                    autofillHints: [
                                                       AutofillHints.email
                                                     ],
                                                     obscureText: false,
@@ -817,10 +1060,27 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .labelLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'EB Garamond',
+                                                                font: GoogleFonts
+                                                                    .ebGaramond(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontStyle,
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
@@ -876,7 +1136,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .primaryBackground,
                                                       contentPadding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   24.0,
@@ -887,9 +1147,30 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontStyle,
                                                         ),
                                                     keyboardType: TextInputType
                                                         .emailAddress,
@@ -904,10 +1185,10 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 16.0),
-                                                child: SizedBox(
+                                                child: Container(
                                                   width: double.infinity,
                                                   child: TextFormField(
                                                     controller: _model
@@ -915,7 +1196,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     focusNode: _model
                                                         .passwordFocusNode,
                                                     autofocus: false,
-                                                    autofillHints: const [
+                                                    autofillHints: [
                                                       AutofillHints.password
                                                     ],
                                                     obscureText: !_model
@@ -927,10 +1208,27 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .labelLarge
                                                               .override(
-                                                                fontFamily:
-                                                                    'EB Garamond',
+                                                                font: GoogleFonts
+                                                                    .ebGaramond(
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelLarge
+                                                                      .fontStyle,
+                                                                ),
                                                                 letterSpacing:
                                                                     0.0,
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelLarge
+                                                                    .fontStyle,
                                                               ),
                                                       enabledBorder:
                                                           OutlineInputBorder(
@@ -986,7 +1284,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                                   context)
                                                               .primaryBackground,
                                                       contentPadding:
-                                                          const EdgeInsetsDirectional
+                                                          EdgeInsetsDirectional
                                                               .fromSTEB(
                                                                   24.0,
                                                                   24.0,
@@ -1020,9 +1318,30 @@ class _LoginWidgetState extends State<LoginWidget>
                                                             context)
                                                         .bodyLarge
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyLarge
+                                                                    .fontStyle,
+                                                          ),
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyLarge
+                                                                  .fontStyle,
                                                         ),
                                                     cursorColor:
                                                         FlutterFlowTheme.of(
@@ -1035,7 +1354,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                 ),
                                               ),
                                               Align(
-                                                alignment: const AlignmentDirectional(
+                                                alignment: AlignmentDirectional(
                                                     0.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
@@ -1072,7 +1391,7 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     }
 
                                                     context.goNamedAuth(
-                                                        'NewHome',
+                                                        NewHomeWidget.routeName,
                                                         context.mounted);
                                                   },
                                                   text: 'Sign In',
@@ -1080,29 +1399,50 @@ class _LoginWidgetState extends State<LoginWidget>
                                                     width: 230.0,
                                                     height: 52.0,
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(
                                                                 30.0,
                                                                 10.0,
                                                                 30.0,
                                                                 10.0),
                                                     iconPadding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 0.0, 0.0),
-                                                    color: const Color(0xFF041E3A),
+                                                    color: Color(0xFF041E3A),
                                                     textStyle: FlutterFlowTheme
                                                             .of(context)
                                                         .titleSmall
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .fontStyle,
+                                                          ),
                                                           color: Colors.white,
                                                           fontSize: 22.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .fontStyle,
                                                         ),
                                                     elevation: 3.0,
-                                                    borderSide: const BorderSide(
+                                                    borderSide: BorderSide(
                                                       color: Colors.transparent,
                                                       width: 1.0,
                                                     ),
@@ -1123,24 +1463,45 @@ class _LoginWidgetState extends State<LoginWidget>
                               ),
                             ),
                             Align(
-                              alignment: const Alignment(0.0, 0),
+                              alignment: Alignment(0.0, 0),
                               child: FlutterFlowButtonTabBar(
                                 useToggleButtonStyle: true,
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .bodyLarge
                                     .override(
-                                      fontFamily: 'EB Garamond',
+                                      font: GoogleFonts.ebGaramond(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
                                     ),
-                                unselectedLabelStyle:
-                                    FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .override(
-                                          fontFamily: 'EB Garamond',
-                                          letterSpacing: 0.0,
-                                        ),
+                                unselectedLabelStyle: FlutterFlowTheme.of(
+                                        context)
+                                    .bodyLarge
+                                    .override(
+                                      font: GoogleFonts.ebGaramond(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
+                                    ),
                                 labelColor:
                                     FlutterFlowTheme.of(context).primary,
                                 unselectedLabelColor:
@@ -1157,13 +1518,13 @@ class _LoginWidgetState extends State<LoginWidget>
                                 borderWidth: 2.0,
                                 borderRadius: 0.0,
                                 elevation: 0.0,
-                                labelPadding: const EdgeInsetsDirectional.fromSTEB(
+                                labelPadding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
-                                buttonMargin: const EdgeInsetsDirectional.fromSTEB(
+                                buttonMargin: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 12.0, 0.0),
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
-                                tabs: const [
+                                tabs: [
                                   Tab(
                                     text: 'Criar Conta',
                                   ),

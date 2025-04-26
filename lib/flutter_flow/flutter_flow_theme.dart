@@ -6,11 +6,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const kThemeModeKey = '__theme_mode__';
+
 SharedPreferences? _prefs;
 
 abstract class FlutterFlowTheme {
   static Future initialize() async =>
       _prefs = await SharedPreferences.getInstance();
+
   static ThemeMode get themeMode {
     final darkMode = _prefs?.getBool(kThemeModeKey);
     return darkMode == null
@@ -182,106 +184,91 @@ class ThemeTypography extends Typography {
   final FlutterFlowTheme theme;
 
   String get displayLargeFamily => 'EB Garamond';
-  TextStyle get displayLarge => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get displayLarge => GoogleFonts.ebGaramond(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 64.0,
       );
   String get displayMediumFamily => 'EB Garamond';
-  TextStyle get displayMedium => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get displayMedium => GoogleFonts.ebGaramond(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 44.0,
       );
   String get displaySmallFamily => 'EB Garamond';
-  TextStyle get displaySmall => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get displaySmall => GoogleFonts.ebGaramond(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 36.0,
       );
   String get headlineLargeFamily => 'EB Garamond';
-  TextStyle get headlineLarge => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get headlineLarge => GoogleFonts.ebGaramond(
         color: theme.primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 32.0,
       );
   String get headlineMediumFamily => 'EB Garamond';
-  TextStyle get headlineMedium => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get headlineMedium => GoogleFonts.ebGaramond(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
   String get headlineSmallFamily => 'EB Garamond';
-  TextStyle get headlineSmall => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get headlineSmall => GoogleFonts.ebGaramond(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 24.0,
       );
   String get titleLargeFamily => 'EB Garamond';
-  TextStyle get titleLarge => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get titleLarge => GoogleFonts.ebGaramond(
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
   String get titleMediumFamily => 'EB Garamond';
-  TextStyle get titleMedium => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get titleMedium => GoogleFonts.ebGaramond(
         color: theme.info,
         fontWeight: FontWeight.normal,
         fontSize: 20.0,
       );
   String get titleSmallFamily => 'EB Garamond';
-  TextStyle get titleSmall => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get titleSmall => GoogleFonts.ebGaramond(
         color: theme.info,
         fontWeight: FontWeight.w500,
         fontSize: 18.0,
       );
   String get labelLargeFamily => 'EB Garamond';
-  TextStyle get labelLarge => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get labelLarge => GoogleFonts.ebGaramond(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
   String get labelMediumFamily => 'EB Garamond';
-  TextStyle get labelMedium => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get labelMedium => GoogleFonts.ebGaramond(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get labelSmallFamily => 'EB Garamond';
-  TextStyle get labelSmall => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get labelSmall => GoogleFonts.ebGaramond(
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,
       );
   String get bodyLargeFamily => 'EB Garamond';
-  TextStyle get bodyLarge => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get bodyLarge => GoogleFonts.ebGaramond(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 18.0,
       );
   String get bodyMediumFamily => 'EB Garamond';
-  TextStyle get bodyMedium => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get bodyMedium => GoogleFonts.ebGaramond(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
   String get bodySmallFamily => 'EB Garamond';
-  TextStyle get bodySmall => GoogleFonts.getFont(
-        'EB Garamond',
+  TextStyle get bodySmall => GoogleFonts.ebGaramond(
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
@@ -316,38 +303,45 @@ class DarkModeTheme extends FlutterFlowTheme {
 
 extension TextStyleHelper on TextStyle {
   TextStyle override({
+    TextStyle? font,
     String? fontFamily,
     Color? color,
     double? fontSize,
     FontWeight? fontWeight,
     double? letterSpacing,
     FontStyle? fontStyle,
-    bool useGoogleFonts = true,
+    bool useGoogleFonts = false,
     TextDecoration? decoration,
     double? lineHeight,
     List<Shadow>? shadows,
-  }) =>
-      useGoogleFonts
-          ? GoogleFonts.getFont(
-              fontFamily!,
-              color: color ?? this.color,
-              fontSize: fontSize ?? this.fontSize,
-              letterSpacing: letterSpacing ?? this.letterSpacing,
-              fontWeight: fontWeight ?? this.fontWeight,
-              fontStyle: fontStyle ?? this.fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            )
-          : copyWith(
-              fontFamily: fontFamily,
-              color: color,
-              fontSize: fontSize,
-              letterSpacing: letterSpacing,
-              fontWeight: fontWeight,
-              fontStyle: fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-              shadows: shadows,
-            );
+  }) {
+    if (useGoogleFonts && fontFamily != null) {
+      font = GoogleFonts.getFont(fontFamily,
+          fontWeight: fontWeight ?? this.fontWeight,
+          fontStyle: fontStyle ?? this.fontStyle);
+    }
+
+    return font != null
+        ? font.copyWith(
+            color: color ?? this.color,
+            fontSize: fontSize ?? this.fontSize,
+            letterSpacing: letterSpacing ?? this.letterSpacing,
+            fontWeight: fontWeight ?? this.fontWeight,
+            fontStyle: fontStyle ?? this.fontStyle,
+            decoration: decoration,
+            height: lineHeight,
+            shadows: shadows,
+          )
+        : copyWith(
+            fontFamily: fontFamily,
+            color: color,
+            fontSize: fontSize,
+            letterSpacing: letterSpacing,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle,
+            decoration: decoration,
+            height: lineHeight,
+            shadows: shadows,
+          );
+  }
 }

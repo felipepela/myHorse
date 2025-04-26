@@ -8,13 +8,18 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/tratador/view_atividade/view_atividade_widget.dart';
 import '/pages/veterinrio/view_consulta/view_consulta_widget.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'new_home_model.dart';
 export 'new_home_model.dart';
 
 class NewHomeWidget extends StatefulWidget {
   const NewHomeWidget({super.key});
+
+  static String routeName = 'NewHome';
+  static String routePath = '/newHome';
 
   @override
   State<NewHomeWidget> createState() => _NewHomeWidgetState();
@@ -37,7 +42,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
       if (valueOrDefault(currentUserDocument?.role, 0) == 0) {
         logFirebaseEvent('NewHome_navigate_to');
 
-        context.pushNamed('AuthUpdate');
+        context.pushNamed(AuthUpdateWidget.routeName);
       } else {
         logFirebaseEvent('NewHome_firestore_query');
         _model.horses = await queryHorsesRecordOnce(
@@ -52,20 +57,20 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
           (valueOrDefault(currentUserDocument?.type, '') == 'Veterinário')) {
         logFirebaseEvent('NewHome_navigate_to');
 
-        context.pushNamed('HomeVeterinario');
+        context.pushNamed(HomeVeterinarioWidget.routeName);
       } else {
         if ((valueOrDefault(currentUserDocument?.role, 0) > 1) &&
             (valueOrDefault(currentUserDocument?.type, '') == 'Tratador')) {
           logFirebaseEvent('NewHome_navigate_to');
 
-          context.pushNamed('HomeTratador');
+          context.pushNamed(HomeTratadorWidget.routeName);
         } else {
           if ((valueOrDefault(currentUserDocument?.role, 0) > 1) &&
               (valueOrDefault(currentUserDocument?.type, '') ==
                   'Responsável Técnico')) {
             logFirebaseEvent('NewHome_navigate_to');
 
-            context.pushNamed('HomeTecnico');
+            context.pushNamed(HomeTecnicoWidget.routeName);
           }
         }
       }
@@ -93,7 +98,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
-          return const Scaffold(
+          return Scaffold(
             backgroundColor: Color(0xFFF1F4F8),
             body: Center(
               child: SizedBox(
@@ -117,20 +122,32 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
           },
           child: Scaffold(
             key: scaffoldKey,
-            backgroundColor: const Color(0xFFF1F4F8),
+            backgroundColor: Color(0xFFF1F4F8),
             appBar: AppBar(
               backgroundColor: FlutterFlowTheme.of(context).primary,
               automaticallyImplyLeading: false,
               title: Text(
                 'Home',
                 style: FlutterFlowTheme.of(context).headlineMedium.override(
-                      fontFamily: 'EB Garamond',
+                      font: GoogleFonts.ebGaramond(
+                        fontWeight: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontWeight,
+                        fontStyle: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .fontStyle,
+                      ),
                       color: Colors.white,
                       fontSize: 22.0,
                       letterSpacing: 0.0,
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                     ),
               ),
-              actions: const [],
+              actions: [],
               centerTitle: false,
               elevation: 2.0,
             ),
@@ -141,7 +158,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 12.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 12.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -160,7 +177,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                       'NEW_HOME_PAGE_Image_qm2g2tkk_ON_TAP');
                                   logFirebaseEvent('Image_navigate_to');
 
-                                  context.pushNamed('Profile');
+                                  context.pushNamed(ProfileWidget.routeName);
                                 },
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(80.0),
@@ -187,7 +204,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 0.0, 0.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => Text(
@@ -198,9 +215,24 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'EB Garamond',
+                                        font: GoogleFonts.ebGaramond(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         fontSize: 18.0,
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                 ),
                               ),
@@ -227,7 +259,8 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                 await authManager.signOut();
                                 GoRouter.of(context).clearRedirectLocation();
 
-                                context.goNamedAuth('Login', context.mounted);
+                                context.goNamedAuth(
+                                    LoginWidget.routeName, context.mounted);
                               },
                             ),
                           ],
@@ -238,7 +271,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                   Container(
                     width: double.infinity,
                     height: 170.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0xFFF1F4F8),
                     ),
                     child: StreamBuilder<List<HorsesRecord>>(
@@ -256,7 +289,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
-                          return const Center(
+                          return Center(
                             child: SizedBox(
                               width: 50.0,
                               height: 50.0,
@@ -286,7 +319,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                             final listViewHorsesRecord =
                                 listViewHorsesRecordList[listViewIndex];
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 12.0, 4.0, 12.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -299,7 +332,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                   logFirebaseEvent('Container_navigate_to');
 
                                   context.pushNamed(
-                                    'CavaloDetalhe',
+                                    CavaloDetalheWidget.routeName,
                                     queryParameters: {
                                       'cavalo': serializeParam(
                                         listViewHorsesRecord.reference,
@@ -313,7 +346,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                   height: 100.0,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    boxShadow: const [
+                                    boxShadow: [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x34090F13),
@@ -326,7 +359,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                     borderRadius: BorderRadius.circular(8.0),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsets.all(12.0),
+                                    padding: EdgeInsets.all(12.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
@@ -338,7 +371,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
                                             if (!snapshot.hasData) {
-                                              return const Center(
+                                              return Center(
                                                 child: SizedBox(
                                                   width: 50.0,
                                                   height: 50.0,
@@ -371,19 +404,32 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 0.0),
                                           child: Text(
                                             listViewHorsesRecord.nome,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily:
-                                                      'Plus Jakarta Sans',
-                                                  color: const Color(0xFF14181B),
+                                                  font: GoogleFonts
+                                                      .plusJakartaSans(
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .fontStyle,
+                                                  ),
+                                                  color: Color(0xFF14181B),
                                                   fontSize: 14.0,
                                                   letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
                                                 ),
                                           ),
                                         ),
@@ -408,30 +454,93 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                       safeSetState(
                           () => _model.calendarSelectedDay = newSelectedDate);
                     },
-                    titleStyle:
-                        FlutterFlowTheme.of(context).titleLarge.override(
-                              fontFamily: 'EB Garamond',
-                              letterSpacing: 0.0,
-                            ),
-                    dayOfWeekStyle:
-                        FlutterFlowTheme.of(context).bodyLarge.override(
-                              fontFamily: 'EB Garamond',
-                              fontSize: 12.0,
-                              letterSpacing: 0.0,
-                            ),
-                    dateStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'EB Garamond',
+                    titleStyle: FlutterFlowTheme.of(context)
+                        .titleLarge
+                        .override(
+                          font: GoogleFonts.ebGaramond(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .fontStyle,
+                          ),
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleLarge
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleLarge.fontStyle,
                         ),
-                    selectedDateStyle:
-                        FlutterFlowTheme.of(context).titleSmall.override(
-                              fontFamily: 'EB Garamond',
-                              letterSpacing: 0.0,
-                            ),
+                    dayOfWeekStyle: FlutterFlowTheme.of(context)
+                        .bodyLarge
+                        .override(
+                          font: GoogleFonts.ebGaramond(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                          fontSize: 12.0,
+                          letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                        ),
+                    dateStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          font: GoogleFonts.ebGaramond(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                    selectedDateStyle: FlutterFlowTheme.of(context)
+                        .titleSmall
+                        .override(
+                          font: GoogleFonts.ebGaramond(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
+                          letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
+                        ),
                     inactiveDateStyle:
                         FlutterFlowTheme.of(context).labelMedium.override(
-                              fontFamily: 'EB Garamond',
+                              font: GoogleFonts.ebGaramond(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .fontStyle,
+                              ),
                               letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .fontStyle,
                             ),
                   ),
                   if ((newHomeHorsesRecordList.isNotEmpty) == true)
@@ -458,7 +567,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
-                          return const Center(
+                          return Center(
                             child: SizedBox(
                               width: 50.0,
                               height: 50.0,
@@ -485,14 +594,14 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                 listView1CavalosConsultasRecordList[
                                     listView1Index];
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 4.0, 16.0, 4.0),
                               child: Container(
                                 width: double.infinity,
                                 height: 80.0,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  boxShadow: const [
+                                  boxShadow: [
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x32000000),
@@ -505,7 +614,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -519,7 +628,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
                                           if (!snapshot.hasData) {
-                                            return const Center(
+                                            return Center(
                                               child: SizedBox(
                                                 width: 50.0,
                                                 height: 50.0,
@@ -559,7 +668,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                         },
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 0.0, 0.0, 0.0),
                                         child: StreamBuilder<HorsesRecord>(
                                           stream: HorsesRecord.getDocument(
@@ -568,7 +677,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
                                             if (!snapshot.hasData) {
-                                              return const Center(
+                                              return Center(
                                                 child: SizedBox(
                                                   width: 50.0,
                                                   height: 50.0,
@@ -611,7 +720,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -627,7 +736,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
-                                                    return const Center(
+                                                    return Center(
                                                       child: SizedBox(
                                                         width: 50.0,
                                                         height: 50.0,
@@ -653,14 +762,27 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
+                                                          font: GoogleFonts
+                                                              .plusJakartaSans(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   );
                                                 },
@@ -672,7 +794,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
-                                                    return const Center(
+                                                    return Center(
                                                       child: SizedBox(
                                                         width: 50.0,
                                                         height: 50.0,
@@ -697,14 +819,28 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
+                                                          font: GoogleFonts
+                                                              .plusJakartaSans(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   );
                                                 },
@@ -721,7 +857,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                         (context, snapshot) {
                                                       // Customize what your widget looks like when it's loading.
                                                       if (!snapshot.hasData) {
-                                                        return const Center(
+                                                        return Center(
                                                           child: SizedBox(
                                                             width: 50.0,
                                                             height: 50.0,
@@ -747,9 +883,17 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                                 .of(context)
                                                             .labelMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Plus Jakarta Sans',
-                                                              color: const Color(
+                                                              font: GoogleFonts
+                                                                  .plusJakartaSans(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                              color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -757,6 +901,11 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
                                                             ),
                                                       );
                                                     },
@@ -807,26 +956,36 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                           width: 70.0,
                                           height: 36.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Outfit',
-                                                    color: Colors.white,
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.outfit(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                           elevation: 2.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -868,7 +1027,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
-                          return const Center(
+                          return Center(
                             child: SizedBox(
                               width: 50.0,
                               height: 50.0,
@@ -897,14 +1056,14 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                 listView2CavalosAtividadesEvidenciasRecordList[
                                     listView2Index];
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 4.0, 16.0, 4.0),
                               child: Container(
                                 width: double.infinity,
                                 height: 80.0,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  boxShadow: const [
+                                  boxShadow: [
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x32000000),
@@ -917,7 +1076,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -931,7 +1090,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
                                           if (!snapshot.hasData) {
-                                            return const Center(
+                                            return Center(
                                               child: SizedBox(
                                                 width: 50.0,
                                                 height: 50.0,
@@ -971,7 +1130,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                         },
                                       ),
                                       Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 0.0, 0.0, 0.0),
                                         child: StreamBuilder<HorsesRecord>(
                                           stream: HorsesRecord.getDocument(
@@ -980,7 +1139,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                           builder: (context, snapshot) {
                                             // Customize what your widget looks like when it's loading.
                                             if (!snapshot.hasData) {
-                                              return const Center(
+                                              return Center(
                                                 child: SizedBox(
                                                   width: 50.0,
                                                   height: 50.0,
@@ -1023,7 +1182,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -1041,7 +1200,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
-                                                    return const Center(
+                                                    return Center(
                                                       child: SizedBox(
                                                         width: 50.0,
                                                         height: 50.0,
@@ -1067,14 +1226,27 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
+                                                          font: GoogleFonts
+                                                              .plusJakartaSans(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   );
                                                 },
@@ -1086,7 +1258,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                 builder: (context, snapshot) {
                                                   // Customize what your widget looks like when it's loading.
                                                   if (!snapshot.hasData) {
-                                                    return const Center(
+                                                    return Center(
                                                       child: SizedBox(
                                                         width: 50.0,
                                                         height: 50.0,
@@ -1111,14 +1283,28 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
+                                                          font: GoogleFonts
+                                                              .plusJakartaSans(
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .normal,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.normal,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   );
                                                 },
@@ -1135,7 +1321,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                         (context, snapshot) {
                                                       // Customize what your widget looks like when it's loading.
                                                       if (!snapshot.hasData) {
-                                                        return const Center(
+                                                        return Center(
                                                           child: SizedBox(
                                                             width: 50.0,
                                                             height: 50.0,
@@ -1161,9 +1347,17 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                                 .of(context)
                                                             .labelMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Plus Jakarta Sans',
-                                                              color: const Color(
+                                                              font: GoogleFonts
+                                                                  .plusJakartaSans(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                              color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -1171,6 +1365,11 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
                                                             ),
                                                       );
                                                     },
@@ -1221,26 +1420,36 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                           width: 70.0,
                                           height: 36.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Outfit',
-                                                    color: Colors.white,
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.outfit(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                           elevation: 2.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),
@@ -1262,14 +1471,14 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 10.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 10.0, 5.0),
                                 child: InkWell(
                                   splashColor: Colors.transparent,
@@ -1281,16 +1490,27 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                         'NEW_HOME_PAGE_Vermais_ON_TAP');
                                     logFirebaseEvent('Vermais_navigate_to');
 
-                                    context.pushNamed('AgendaGeral');
+                                    context
+                                        .pushNamed(AgendaGeralWidget.routeName);
                                   },
                                   child: Text(
                                     'Ver Agenda Completa',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'EB Garamond',
+                                          font: GoogleFonts.ebGaramond(
+                                            fontWeight: FontWeight.bold,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.bold,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                   ),
                                 ),
@@ -1311,7 +1531,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 10.0, 0.0, 10.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
@@ -1321,10 +1541,18 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'EB Garamond',
+                                      font: GoogleFonts.ebGaramond(
+                                        fontWeight: FontWeight.bold,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       fontSize: 22.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.bold,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ],
@@ -1352,7 +1580,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
-                          return const Center(
+                          return Center(
                             child: SizedBox(
                               width: 50.0,
                               height: 50.0,
@@ -1380,14 +1608,14 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                 listView2CavalosCompeticaoRecordList[
                                     listView2Index];
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 4.0, 16.0, 4.0),
                               child: Container(
                                 width: double.infinity,
                                 height: 80.0,
                                 decoration: BoxDecoration(
                                   color: Colors.white,
-                                  boxShadow: const [
+                                  boxShadow: [
                                     BoxShadow(
                                       blurRadius: 4.0,
                                       color: Color(0x32000000),
@@ -1400,7 +1628,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 0.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -1414,7 +1642,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                         builder: (context, snapshot) {
                                           // Customize what your widget looks like when it's loading.
                                           if (!snapshot.hasData) {
-                                            return const Center(
+                                            return Center(
                                               child: SizedBox(
                                                 width: 50.0,
                                                 height: 50.0,
@@ -1456,7 +1684,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                       Expanded(
                                         child: Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   12.0, 0.0, 0.0, 0.0),
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -1472,14 +1700,27 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
+                                                          font: GoogleFonts
+                                                              .plusJakartaSans(
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           color:
-                                                              const Color(0xFF14181B),
+                                                              Color(0xFF14181B),
                                                           fontSize: 14.0,
                                                           letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                               ),
                                               Row(
@@ -1494,7 +1735,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                         (context, snapshot) {
                                                       // Customize what your widget looks like when it's loading.
                                                       if (!snapshot.hasData) {
-                                                        return const Center(
+                                                        return Center(
                                                           child: SizedBox(
                                                             width: 50.0,
                                                             height: 50.0,
@@ -1523,9 +1764,17 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                                 .of(context)
                                                             .labelMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'Plus Jakarta Sans',
-                                                              color: const Color(
+                                                              font: GoogleFonts
+                                                                  .plusJakartaSans(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
+                                                              ),
+                                                              color: Color(
                                                                   0xFF57636C),
                                                               fontSize: 14.0,
                                                               letterSpacing:
@@ -1533,13 +1782,18 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .normal,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
                                                             ),
                                                       );
                                                     },
                                                   ),
                                                   Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: StreamBuilder<
@@ -1552,7 +1806,7 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                           (context, snapshot) {
                                                         // Customize what your widget looks like when it's loading.
                                                         if (!snapshot.hasData) {
-                                                          return const Center(
+                                                          return Center(
                                                             child: SizedBox(
                                                               width: 50.0,
                                                               height: 50.0,
@@ -1581,9 +1835,17 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                                   .of(context)
                                                               .labelMedium
                                                               .override(
-                                                                fontFamily:
-                                                                    'Plus Jakarta Sans',
-                                                                color: const Color(
+                                                                font: GoogleFonts
+                                                                    .plusJakartaSans(
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .normal,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMedium
+                                                                      .fontStyle,
+                                                                ),
+                                                                color: Color(
                                                                     0xFF57636C),
                                                                 fontSize: 14.0,
                                                                 letterSpacing:
@@ -1591,6 +1853,10 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .labelMedium
+                                                                    .fontStyle,
                                                               ),
                                                         );
                                                       },
@@ -1642,26 +1908,36 @@ class _NewHomeWidgetState extends State<NewHomeWidget> {
                                           width: 70.0,
                                           height: 36.0,
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           iconPadding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Outfit',
-                                                    color: Colors.white,
-                                                    fontSize: 14.0,
-                                                    letterSpacing: 0.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
+                                          textStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodyMedium
+                                              .override(
+                                                font: GoogleFonts.outfit(
+                                                  fontWeight: FontWeight.normal,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodyMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.white,
+                                                fontSize: 14.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight: FontWeight.normal,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                           elevation: 2.0,
-                                          borderSide: const BorderSide(
+                                          borderSide: BorderSide(
                                             color: Colors.transparent,
                                             width: 1.0,
                                           ),

@@ -4,7 +4,9 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'cavalo_detalhe_model.dart';
 export 'cavalo_detalhe_model.dart';
 
@@ -15,6 +17,9 @@ class CavaloDetalheWidget extends StatefulWidget {
   });
 
   final DocumentReference? cavalo;
+
+  static String routeName = 'CavaloDetalhe';
+  static String routePath = '/cavaloDetalhe';
 
   @override
   State<CavaloDetalheWidget> createState() => _CavaloDetalheWidgetState();
@@ -51,7 +56,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
         if (!snapshot.hasData) {
           return Scaffold(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            body: const Center(
+            body: Center(
               child: SizedBox(
                 width: 50.0,
                 height: 50.0,
@@ -79,14 +84,14 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  SizedBox(
+                  Container(
                     width: double.infinity,
                     height: 444.0,
                     child: Stack(
-                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      alignment: AlignmentDirectional(0.0, -1.0),
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.0, -1.0),
+                          alignment: AlignmentDirectional(0.0, -1.0),
                           child: Image.network(
                             cavaloDetalheHorsesRecord.foto,
                             width: double.infinity,
@@ -95,9 +100,9 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, -1.0),
+                          alignment: AlignmentDirectional(0.0, -1.0),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 44.0, 16.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
@@ -109,7 +114,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    boxShadow: const [
+                                    boxShadow: [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x520E151B),
@@ -140,7 +145,8 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                       logFirebaseEvent(
                                           'IconButton_navigate_to');
 
-                                      context.pushNamed('NewHome');
+                                      context
+                                          .pushNamed(NewHomeWidget.routeName);
                                     },
                                   ),
                                 ),
@@ -150,7 +156,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    boxShadow: const [
+                                    boxShadow: [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x520E151B),
@@ -185,8 +191,8 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                 context: context,
                                                 builder: (alertDialogContext) {
                                                   return AlertDialog(
-                                                    title: const Text('Tem certeza?'),
-                                                    content: const Text(
+                                                    title: Text('Tem certeza?'),
+                                                    content: Text(
                                                         'Você realmente deseja remover seu cavalo?'),
                                                     actions: [
                                                       TextButton(
@@ -194,14 +200,14 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                             Navigator.pop(
                                                                 alertDialogContext,
                                                                 false),
-                                                        child: const Text('Cancel'),
+                                                        child: Text('Cancel'),
                                                       ),
                                                       TextButton(
                                                         onPressed: () =>
                                                             Navigator.pop(
                                                                 alertDialogContext,
                                                                 true),
-                                                        child: const Text('Sim'),
+                                                        child: Text('Sim'),
                                                       ),
                                                     ],
                                                   );
@@ -218,7 +224,8 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                       logFirebaseEvent(
                                           'IconButton_navigate_to');
 
-                                      context.pushNamed('NewHome');
+                                      context
+                                          .pushNamed(NewHomeWidget.routeName);
                                     },
                                   ),
                                 ),
@@ -228,7 +235,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
-                                    boxShadow: const [
+                                    boxShadow: [
                                       BoxShadow(
                                         blurRadius: 4.0,
                                         color: Color(0x520E151B),
@@ -288,7 +295,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: ClipRRect(
                             child: BackdropFilter(
                               filter: ImageFilter.blur(
@@ -305,31 +312,35 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                       'CAVALO_DETALHE_Container_l2ceib56_ON_TAP');
                                   logFirebaseEvent(
                                       'Container_date_time_picker');
-                                  final datePickedDate = await showDatePicker(
+                                  final _datePickedDate = await showDatePicker(
                                     context: context,
                                     initialDate: getCurrentTimestamp,
                                     firstDate: getCurrentTimestamp,
                                     lastDate: getCurrentTimestamp,
                                   );
 
-                                  if (datePickedDate != null) {
+                                  if (_datePickedDate != null) {
                                     safeSetState(() {
                                       _model.datePicked = DateTime(
-                                        datePickedDate.year,
-                                        datePickedDate.month,
-                                        datePickedDate.day,
+                                        _datePickedDate.year,
+                                        _datePickedDate.month,
+                                        _datePickedDate.day,
                                       );
+                                    });
+                                  } else if (_model.datePicked != null) {
+                                    safeSetState(() {
+                                      _model.datePicked = getCurrentTimestamp;
                                     });
                                   }
                                 },
                                 child: Container(
                                   width: double.infinity,
                                   height: 239.0,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Color(0x801D2429),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 15.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -344,22 +355,43 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                 cavaloDetalheHorsesRecord.nome,
                                                 '?',
                                               ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .headlineSmall
-                                                      .override(
-                                                        fontFamily:
-                                                            'EB Garamond',
-                                                        color: Colors.white,
-                                                        fontSize: 20.0,
-                                                        letterSpacing: 0.0,
-                                                      ),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .headlineSmall
+                                                  .override(
+                                                    font:
+                                                        GoogleFonts.ebGaramond(
+                                                      fontWeight:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .headlineSmall
+                                                              .fontWeight,
+                                                      fontStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .headlineSmall
+                                                              .fontStyle,
+                                                    ),
+                                                    color: Colors.white,
+                                                    fontSize: 20.0,
+                                                    letterSpacing: 0.0,
+                                                    fontWeight:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineSmall
+                                                            .fontWeight,
+                                                    fontStyle:
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .headlineSmall
+                                                            .fontStyle,
+                                                  ),
                                             ),
                                           ],
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -376,13 +408,27 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     ),
                                                     TextSpan(
@@ -396,11 +442,32 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     )
                                                   ],
@@ -408,10 +475,31 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'EB Garamond',
+                                                        font: GoogleFonts
+                                                            .ebGaramond(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -420,7 +508,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -437,13 +525,27 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     ),
                                                     TextSpan(
@@ -457,11 +559,32 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     )
                                                   ],
@@ -469,10 +592,31 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'EB Garamond',
+                                                        font: GoogleFonts
+                                                            .ebGaramond(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -481,7 +625,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -498,13 +642,27 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     ),
                                                     TextSpan(
@@ -518,11 +676,32 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     )
                                                   ],
@@ -530,10 +709,31 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'EB Garamond',
+                                                        font: GoogleFonts
+                                                            .ebGaramond(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -542,7 +742,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -559,13 +759,27 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     ),
                                                     TextSpan(
@@ -579,11 +793,32 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     )
                                                   ],
@@ -591,10 +826,31 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'EB Garamond',
+                                                        font: GoogleFonts
+                                                            .ebGaramond(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
@@ -603,7 +859,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 4.0, 0.0, 0.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -620,13 +876,27 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.bold,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     ),
                                                     TextSpan(
@@ -640,11 +910,32 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               .of(context)
                                                           .bodyMedium
                                                           .override(
-                                                            fontFamily:
-                                                                'EB Garamond',
+                                                            font: GoogleFonts
+                                                                .ebGaramond(
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
+                                                            ),
                                                             color: Colors.white,
                                                             fontSize: 18.0,
                                                             letterSpacing: 0.0,
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
                                                           ),
                                                     )
                                                   ],
@@ -652,15 +943,36 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                           context)
                                                       .bodyMedium
                                                       .override(
-                                                        fontFamily:
-                                                            'EB Garamond',
+                                                        font: GoogleFonts
+                                                            .ebGaramond(
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
+                                                        ),
                                                         fontSize: 12.0,
                                                         letterSpacing: 0.0,
+                                                        fontWeight:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontWeight,
+                                                        fontStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .fontStyle,
                                                       ),
                                                 ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         16.0, 0.0, 0.0, 0.0),
                                                 child: RichText(
@@ -675,8 +987,16 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'EB Garamond',
+                                                              font: GoogleFonts
+                                                                  .ebGaramond(
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 18.0,
@@ -685,6 +1005,11 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                               fontWeight:
                                                                   FontWeight
                                                                       .bold,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                             ),
                                                       ),
                                                       TextSpan(
@@ -698,13 +1023,32 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                                 .of(context)
                                                             .bodyMedium
                                                             .override(
-                                                              fontFamily:
-                                                                  'EB Garamond',
+                                                              font: GoogleFonts
+                                                                  .ebGaramond(
+                                                                fontWeight: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                                fontStyle: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                              ),
                                                               color:
                                                                   Colors.white,
                                                               fontSize: 18.0,
                                                               letterSpacing:
                                                                   0.0,
+                                                              fontWeight:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                              fontStyle:
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                             ),
                                                       )
                                                     ],
@@ -712,10 +1056,31 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                                                             context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily:
-                                                              'EB Garamond',
+                                                          font: GoogleFonts
+                                                              .ebGaramond(
+                                                            fontWeight:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontWeight,
+                                                            fontStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMedium
+                                                                    .fontStyle,
+                                                          ),
                                                           fontSize: 12.0,
                                                           letterSpacing: 0.0,
+                                                          fontWeight:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontWeight,
+                                                          fontStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .fontStyle,
                                                         ),
                                                   ),
                                                 ),
@@ -736,7 +1101,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -745,10 +1110,23 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                           'Galeria de Fotos',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
                                   ),
                         ),
                         FlutterFlowIconButton(
@@ -766,7 +1144,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                             logFirebaseEvent('IconButton_navigate_to');
 
                             context.pushNamed(
-                              'CavaloGaleria',
+                              CavaloGaleriaWidget.routeName,
                               queryParameters: {
                                 'cavalo': serializeParam(
                                   cavaloDetalheHorsesRecord.reference,
@@ -781,7 +1159,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -790,10 +1168,23 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                           'Documentos',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
                                   ),
                         ),
                         FlutterFlowIconButton(
@@ -811,7 +1202,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                             logFirebaseEvent('IconButton_navigate_to');
 
                             context.pushNamed(
-                              'CavaloDocumentos',
+                              CavaloDocumentosWidget.routeName,
                               queryParameters: {
                                 'cavalo': serializeParam(
                                   cavaloDetalheHorsesRecord.reference,
@@ -826,7 +1217,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -835,10 +1226,23 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                           'Profissionais Vinculados',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
                                   ),
                         ),
                         FlutterFlowIconButton(
@@ -856,7 +1260,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                             logFirebaseEvent('IconButton_navigate_to');
 
                             context.pushNamed(
-                              'CavaloProfissionais',
+                              CavaloProfissionaisWidget.routeName,
                               queryParameters: {
                                 'cavalo': serializeParam(
                                   cavaloDetalheHorsesRecord.reference,
@@ -871,7 +1275,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -880,10 +1284,23 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                           'Planejamento de Atividades',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
                                   ),
                         ),
                         FlutterFlowIconButton(
@@ -901,7 +1318,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                             logFirebaseEvent('IconButton_navigate_to');
 
                             context.pushNamed(
-                              'CavaloAtividades',
+                              CavaloAtividadesWidget.routeName,
                               queryParameters: {
                                 'cavalo': serializeParam(
                                   cavaloDetalheHorsesRecord.reference,
@@ -916,7 +1333,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -925,10 +1342,23 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                           'Histórico de Consultas',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
                                   ),
                         ),
                         FlutterFlowIconButton(
@@ -946,7 +1376,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                             logFirebaseEvent('IconButton_navigate_to');
 
                             context.pushNamed(
-                              'CavaloAgendaConsultas',
+                              CavaloAgendaConsultasWidget.routeName,
                               queryParameters: {
                                 'cavalo': serializeParam(
                                   cavaloDetalheHorsesRecord.reference,
@@ -961,7 +1391,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -970,10 +1400,23 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                           'Atividades Realizadas',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
                                   ),
                         ),
                         FlutterFlowIconButton(
@@ -992,7 +1435,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                             logFirebaseEvent('IconButton_navigate_to');
 
                             context.pushNamed(
-                              'CavaloAgendaAtividades',
+                              CavaloAgendaAtividadesWidget.routeName,
                               queryParameters: {
                                 'cavalo': serializeParam(
                                   cavaloDetalheHorsesRecord.reference,
@@ -1007,7 +1450,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1016,10 +1459,23 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                           'Agenda de Competições',
                           style:
                               FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
                                     color: FlutterFlowTheme.of(context).primary,
                                     fontSize: 18.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
                                   ),
                         ),
                         FlutterFlowIconButton(
@@ -1038,7 +1494,7 @@ class _CavaloDetalheWidgetState extends State<CavaloDetalheWidget> {
                             logFirebaseEvent('IconButton_navigate_to');
 
                             context.pushNamed(
-                              'CavaloCompeticoes',
+                              CavaloCompeticoesWidget.routeName,
                               queryParameters: {
                                 'cavalo': serializeParam(
                                   widget.cavalo,

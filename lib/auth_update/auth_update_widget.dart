@@ -6,13 +6,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'auth_update_model.dart';
 export 'auth_update_model.dart';
 
 class AuthUpdateWidget extends StatefulWidget {
   const AuthUpdateWidget({super.key});
+
+  static String routeName = 'AuthUpdate';
+  static String routePath = '/authUpdate';
 
   @override
   State<AuthUpdateWidget> createState() => _AuthUpdateWidgetState();
@@ -57,7 +62,7 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -66,19 +71,28 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
               logFirebaseEvent('AUTH_UPDATE_arrow_back_rounded_ICN_ON_TA');
               logFirebaseEvent('IconButton_navigate_to');
 
-              context.pushNamed('NewHome');
+              context.pushNamed(NewHomeWidget.routeName);
             },
           ),
           title: Text(
             'Perfil do Usuário',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'EB Garamond',
+                  font: GoogleFonts.ebGaramond(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -100,16 +114,29 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 20.0, 8.0, 20.0),
                           child: AutoSizeText(
                             'Você pode utilizar nosso aplicativo para fazer a gestão dos seus animas ou como um profissional que atende ao público. ',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'EB Garamond',
+                                  font: GoogleFonts.ebGaramond(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -141,7 +168,7 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                                   controller:
                                       _model.selecionePerfilValueController ??=
                                           FormFieldController<String>(null),
-                                  options: const [
+                                  options: [
                                     'Proprietário de Cavalo',
                                     'Veterinário',
                                     'Responsável Técnico',
@@ -154,8 +181,23 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                                   textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'EB Garamond',
+                                        font: GoogleFonts.ebGaramond(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
+                                        ),
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
                                       ),
                                   hintText: 'Selecione o Perfil',
                                   icon: Icon(
@@ -170,7 +212,7 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                                   borderColor: Colors.transparent,
                                   borderWidth: 0.0,
                                   borderRadius: 8.0,
-                                  margin: const EdgeInsetsDirectional.fromSTEB(
+                                  margin: EdgeInsetsDirectional.fromSTEB(
                                       12.0, 0.0, 12.0, 0.0),
                                   hidesUnderline: true,
                                   isOverButton: false,
@@ -193,16 +235,33 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                                         .secondaryBackground,
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 20.0, 8.0, 20.0),
                                     child: Text(
                                       'Caso você faça parte de dois perfis, um veterinário e propriertário de cavalos, você precisa fazer 2 logins diferentes.',
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'EB Garamond',
+                                            font: GoogleFonts.ebGaramond(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                             fontSize: 18.0,
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                     ),
                                   ),
@@ -217,7 +276,7 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     logFirebaseEvent('AUTH_UPDATE_PAGE_Modificar_ON_TAP');
@@ -227,13 +286,13 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                         context: context,
                         builder: (alertDialogContext) {
                           return AlertDialog(
-                            title: const Text('Alerta'),
-                            content: const Text('Você precisa selecionar um perfil!'),
+                            title: Text('Alerta'),
+                            content: Text('Você precisa selecionar um perfil!'),
                             actions: [
                               TextButton(
                                 onPressed: () =>
                                     Navigator.pop(alertDialogContext),
-                                child: const Text('Ok'),
+                                child: Text('Ok'),
                               ),
                             ],
                           );
@@ -254,14 +313,14 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                         context: context,
                         builder: (alertDialogContext) {
                           return AlertDialog(
-                            title: const Text('Sucesso'),
-                            content: const Text(
+                            title: Text('Sucesso'),
+                            content: Text(
                                 'Seu cadastor como Proprietário foi Concluido.'),
                             actions: [
                               TextButton(
                                 onPressed: () =>
                                     Navigator.pop(alertDialogContext),
-                                child: const Text('Ok'),
+                                child: Text('Ok'),
                               ),
                             ],
                           );
@@ -269,7 +328,7 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                       );
                       logFirebaseEvent('Modificar_navigate_to');
 
-                      context.pushNamed('NewHome');
+                      context.pushNamed(NewHomeWidget.routeName);
                     } else {
                       logFirebaseEvent('Modificar_backend_call');
 
@@ -282,14 +341,14 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                         context: context,
                         builder: (alertDialogContext) {
                           return AlertDialog(
-                            title: const Text('Sucesso'),
-                            content: const Text(
+                            title: Text('Sucesso'),
+                            content: Text(
                                 'Seu cadastro foi criado como Prestador de Serviço,'),
                             actions: [
                               TextButton(
                                 onPressed: () =>
                                     Navigator.pop(alertDialogContext),
-                                child: const Text('Ok'),
+                                child: Text('Ok'),
                               ),
                             ],
                           );
@@ -299,17 +358,17 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                           'Tratador') {
                         logFirebaseEvent('Modificar_navigate_to');
 
-                        context.pushNamed('HomeTratador');
+                        context.pushNamed(HomeTratadorWidget.routeName);
                       } else {
                         if (valueOrDefault(currentUserDocument?.type, '') ==
                             'Responsável Técnico') {
                           logFirebaseEvent('Modificar_navigate_to');
 
-                          context.pushNamed('HomeTecnico');
+                          context.pushNamed(HomeTecnicoWidget.routeName);
                         } else {
                           logFirebaseEvent('Modificar_navigate_to');
 
-                          context.pushNamed('HomeVeterinario');
+                          context.pushNamed(HomeVeterinarioWidget.routeName);
                         }
                       }
                     }
@@ -319,18 +378,30 @@ class _AuthUpdateWidgetState extends State<AuthUpdateWidget> {
                     width: MediaQuery.sizeOf(context).width * 0.95,
                     height: 51.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 10.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFFBAAD72),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFFBAAD72),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'EB Garamond',
+                          font: GoogleFonts.ebGaramond(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
                           color: Colors.white,
                           fontSize: 22.0,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),

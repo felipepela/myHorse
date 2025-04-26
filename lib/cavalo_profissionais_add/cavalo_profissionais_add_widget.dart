@@ -5,8 +5,10 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/index.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'cavalo_profissionais_add_model.dart';
 export 'cavalo_profissionais_add_model.dart';
 
@@ -15,10 +17,13 @@ class CavaloProfissionaisAddWidget extends StatefulWidget {
     super.key,
     required this.cavalo,
     String? profissionalSelecionado,
-  }) : profissionalSelecionado = profissionalSelecionado ?? '';
+  }) : this.profissionalSelecionado = profissionalSelecionado ?? '';
 
   final DocumentReference? cavalo;
   final String profissionalSelecionado;
+
+  static String routeName = 'CavaloProfissionaisAdd';
+  static String routePath = '/cavaloProfissionaisAdd';
 
   @override
   State<CavaloProfissionaisAddWidget> createState() =>
@@ -63,7 +68,7 @@ class _CavaloProfissionaisAddWidgetState
         if (!snapshot.hasData) {
           return Scaffold(
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-            body: const Center(
+            body: Center(
               child: SizedBox(
                 width: 50.0,
                 height: 50.0,
@@ -91,7 +96,7 @@ class _CavaloProfissionaisAddWidgetState
               borderRadius: 30.0,
               borderWidth: 1.0,
               buttonSize: 60.0,
-              icon: const Icon(
+              icon: Icon(
                 Icons.arrow_back_rounded,
                 color: Colors.white,
                 size: 30.0,
@@ -105,13 +110,23 @@ class _CavaloProfissionaisAddWidgetState
             title: Text(
               'Profissionais',
               style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'EB Garamond',
+                    font: GoogleFonts.ebGaramond(
+                      fontWeight: FlutterFlowTheme.of(context)
+                          .headlineMedium
+                          .fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                    ),
                     color: Colors.white,
                     fontSize: 22.0,
                     letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                   ),
             ),
-            actions: const [],
+            actions: [],
             centerTitle: true,
             elevation: 2.0,
           ),
@@ -127,21 +142,34 @@ class _CavaloProfissionaisAddWidgetState
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 8.0, 0.0, 0.0),
                               child: Text(
                                 'Ao escolher um profissional, ele poderá ter acesso as informações do seu cavalo, inserir consultas, tratamentos e atividades. ',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'EB Garamond',
+                                      font: GoogleFonts.ebGaramond(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                               ),
                             ),
@@ -154,9 +182,9 @@ class _CavaloProfissionaisAddWidgetState
                       children: [
                         Expanded(
                           child: Align(
-                            alignment: const AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   8.0, 0.0, 8.0, 0.0),
                               child: StreamBuilder<List<UsersRecord>>(
                                 stream: queryUsersRecord(
@@ -170,7 +198,7 @@ class _CavaloProfissionaisAddWidgetState
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
                                   if (!snapshot.hasData) {
-                                    return const Center(
+                                    return Center(
                                       child: SizedBox(
                                         width: 50.0,
                                         height: 50.0,
@@ -205,21 +233,72 @@ class _CavaloProfissionaisAddWidgetState
                                         FlutterFlowTheme.of(context)
                                             .labelMedium
                                             .override(
-                                              fontFamily: 'EB Garamond',
+                                              font: GoogleFonts.ebGaramond(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .labelMedium
+                                                      .fontStyle,
                                             ),
                                     searchTextStyle:
                                         FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'EB Garamond',
+                                              font: GoogleFonts.ebGaramond(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                     textStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'EB Garamond',
+                                          font: GoogleFonts.ebGaramond(
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
                                           letterSpacing: 0.0,
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMedium
+                                                  .fontStyle,
                                         ),
                                     hintText: 'Selecione o Profissional',
                                     searchHintText: 'Buscar',
@@ -235,7 +314,7 @@ class _CavaloProfissionaisAddWidgetState
                                     borderColor: Colors.transparent,
                                     borderWidth: 0.0,
                                     borderRadius: 8.0,
-                                    margin: const EdgeInsetsDirectional.fromSTEB(
+                                    margin: EdgeInsetsDirectional.fromSTEB(
                                         12.0, 0.0, 12.0, 0.0),
                                     hidesUnderline: true,
                                     isOverButton: false,
@@ -253,7 +332,7 @@ class _CavaloProfissionaisAddWidgetState
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               8.0, 8.0, 0.0, 0.0),
                           child: Text(
                             valueOrDefault<String>(
@@ -263,9 +342,22 @@ class _CavaloProfissionaisAddWidgetState
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'EB Garamond',
+                                  font: GoogleFonts.ebGaramond(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   fontSize: 22.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                           ),
                         ),
@@ -276,16 +368,16 @@ class _CavaloProfissionaisAddWidgetState
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 8.0, 8.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 logFirebaseEvent(
                                     'CAVALO_PROFISSIONAIS_ADD_VINCULAR_PROFIS');
-                                var shouldSetState = false;
+                                var _shouldSetState = false;
                                 if (!(_model.dropDownFieldValue != null &&
                                     _model.dropDownFieldValue != '')) {
-                                  if (shouldSetState) safeSetState(() {});
+                                  if (_shouldSetState) safeSetState(() {});
                                   return;
                                 }
                                 logFirebaseEvent('Button_firestore_query');
@@ -298,7 +390,7 @@ class _CavaloProfissionaisAddWidgetState
                                   ),
                                   singleRecord: true,
                                 ).then((s) => s.firstOrNull);
-                                shouldSetState = true;
+                                _shouldSetState = true;
                                 logFirebaseEvent('Button_backend_call');
 
                                 await CavalosProfissionaisRecord.collection
@@ -316,14 +408,14 @@ class _CavaloProfissionaisAddWidgetState
                                   context: context,
                                   builder: (alertDialogContext) {
                                     return AlertDialog(
-                                      title: const Text('Sucesso'),
-                                      content: const Text(
+                                      title: Text('Sucesso'),
+                                      content: Text(
                                           'Profissional Vinculado com Sucesso'),
                                       actions: [
                                         TextButton(
                                           onPressed: () =>
                                               Navigator.pop(alertDialogContext),
-                                          child: const Text('Ok'),
+                                          child: Text('Ok'),
                                         ),
                                       ],
                                     );
@@ -332,7 +424,7 @@ class _CavaloProfissionaisAddWidgetState
                                 logFirebaseEvent('Button_navigate_to');
 
                                 context.pushNamed(
-                                  'CavaloProfissionais',
+                                  CavaloProfissionaisWidget.routeName,
                                   queryParameters: {
                                     'cavalo': serializeParam(
                                       widget.cavalo,
@@ -341,26 +433,39 @@ class _CavaloProfissionaisAddWidgetState
                                   }.withoutNulls,
                                 );
 
-                                if (shouldSetState) safeSetState(() {});
+                                if (_shouldSetState) safeSetState(() {});
                               },
                               text: 'Vincular Profissional',
                               options: FFButtonOptions(
                                 height: 61.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     30.0, 10.0, 30.0, 10.0),
-                                iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
-                                color: const Color(0xFF041E3A),
+                                color: Color(0xFF041E3A),
                                 textStyle: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'EB Garamond',
+                                      font: GoogleFonts.ebGaramond(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
                                       color: Colors.white,
                                       fontSize: 18.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
                                     ),
                                 elevation: 3.0,
-                                borderSide: const BorderSide(
+                                borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,
                                 ),

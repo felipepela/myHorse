@@ -3,7 +3,9 @@ import '/components/nova_atividade_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'cavalo_atividades_model.dart';
 export 'cavalo_atividades_model.dart';
 
@@ -14,6 +16,9 @@ class CavaloAtividadesWidget extends StatefulWidget {
   });
 
   final DocumentReference? cavalo;
+
+  static String routeName = 'CavaloAtividades';
+  static String routePath = '/cavaloAtividades';
 
   @override
   State<CavaloAtividadesWidget> createState() => _CavaloAtividadesWidgetState();
@@ -92,7 +97,7 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -102,7 +107,7 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
               logFirebaseEvent('IconButton_navigate_to');
 
               context.pushNamed(
-                'CavaloDetalhe',
+                CavaloDetalheWidget.routeName,
                 queryParameters: {
                   'cavalo': serializeParam(
                     widget.cavalo,
@@ -115,13 +120,22 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
           title: Text(
             'Planejamento de Atividades',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'EB Garamond',
+                  font: GoogleFonts.ebGaramond(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -139,7 +153,7 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 8.0, 8.0, 8.0, 8.0),
                             child: StreamBuilder<List<CavalosAtividadesRecord>>(
                               stream: queryCavalosAtividadesRecord(
@@ -152,7 +166,7 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                               builder: (context, snapshot) {
                                 // Customize what your widget looks like when it's loading.
                                 if (!snapshot.hasData) {
-                                  return const Center(
+                                  return Center(
                                     child: SizedBox(
                                       width: 50.0,
                                       height: 50.0,
@@ -180,7 +194,7 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                         listViewCavalosAtividadesRecordList[
                                             listViewIndex];
                                     return Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
                                           0.0, 8.0, 8.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
@@ -193,7 +207,7 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         5.0, 5.0, 0.0, 0.0),
                                                 child: Container(
@@ -205,11 +219,11 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                         .secondaryBackground,
                                                   ),
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.0),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(5.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Column(
@@ -224,7 +238,7 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                       children: [
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       0.0,
@@ -237,19 +251,31 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'EB Garamond',
+                                                                  font: GoogleFonts
+                                                                      .ebGaramond(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .bold,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       0.0,
@@ -262,16 +288,33 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'EB Garamond',
+                                                                  font: GoogleFonts
+                                                                      .ebGaramond(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       5.0,
                                                                       0.0,
@@ -284,10 +327,27 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                                     .of(context)
                                                                 .bodyMedium
                                                                 .override(
-                                                                  fontFamily:
-                                                                      'EB Garamond',
+                                                                  font: GoogleFonts
+                                                                      .ebGaramond(
+                                                                    fontWeight: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontWeight,
+                                                                    fontStyle: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .bodyMedium
+                                                                        .fontStyle,
+                                                                  ),
                                                                   letterSpacing:
                                                                       0.0,
+                                                                  fontWeight: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontWeight,
+                                                                  fontStyle: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMedium
+                                                                      .fontStyle,
                                                                 ),
                                                           ),
                                                         ),
@@ -297,7 +357,7 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                           children: [
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -316,16 +376,31 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'EB Garamond',
+                                                                      font: GoogleFonts
+                                                                          .ebGaramond(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ),
                                                             Padding(
                                                               padding:
-                                                                  const EdgeInsetsDirectional
+                                                                  EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           5.0,
                                                                           0.0,
@@ -344,10 +419,25 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                                         context)
                                                                     .bodyMedium
                                                                     .override(
-                                                                      fontFamily:
-                                                                          'EB Garamond',
+                                                                      font: GoogleFonts
+                                                                          .ebGaramond(
+                                                                        fontWeight: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontWeight,
+                                                                        fontStyle: FlutterFlowTheme.of(context)
+                                                                            .bodyMedium
+                                                                            .fontStyle,
+                                                                      ),
                                                                       letterSpacing:
                                                                           0.0,
+                                                                      fontWeight: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontWeight,
+                                                                      fontStyle: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .bodyMedium
+                                                                          .fontStyle,
                                                                     ),
                                                               ),
                                                             ),
@@ -385,9 +475,9 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                         builder:
                                                             (alertDialogContext) {
                                                           return AlertDialog(
-                                                            title: const Text(
+                                                            title: Text(
                                                                 'Certeza?'),
-                                                            content: const Text(
+                                                            content: Text(
                                                                 'Deseja remover a atividade?'),
                                                             actions: [
                                                               TextButton(
@@ -396,7 +486,7 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                                         alertDialogContext,
                                                                         false),
                                                                 child:
-                                                                    const Text('Nâo'),
+                                                                    Text('Nâo'),
                                                               ),
                                                               TextButton(
                                                                 onPressed: () =>
@@ -404,7 +494,7 @@ class _CavaloAtividadesWidgetState extends State<CavaloAtividadesWidget> {
                                                                         alertDialogContext,
                                                                         true),
                                                                 child:
-                                                                    const Text('Sim'),
+                                                                    Text('Sim'),
                                                               ),
                                                             ],
                                                           );

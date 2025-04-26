@@ -6,13 +6,18 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
+import '/index.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'profile_tecnico_model.dart';
 export 'profile_tecnico_model.dart';
 
 class ProfileTecnicoWidget extends StatefulWidget {
   const ProfileTecnicoWidget({super.key});
+
+  static String routeName = 'ProfileTecnico';
+  static String routePath = '/profileTecnico';
 
   @override
   State<ProfileTecnicoWidget> createState() => _ProfileTecnicoWidgetState();
@@ -70,7 +75,7 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -79,19 +84,28 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
               logFirebaseEvent('PROFILE_TECNICO_arrow_back_rounded_ICN_O');
               logFirebaseEvent('IconButton_navigate_to');
 
-              context.pushNamed('NewHome');
+              context.pushNamed(NewHomeWidget.routeName);
             },
           ),
           title: Text(
             'Profile',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'EB Garamond',
+                  font: GoogleFonts.ebGaramond(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -116,7 +130,7 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                         children: [
                           Flexible(
                             child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 20.0, 0.0, 20.0),
                               child: AuthUserStreamWidget(
                                 builder: (context) => ClipRRect(
@@ -226,21 +240,34 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                             text: 'Trocar Foto',
                             options: FFButtonOptions(
                               height: 40.0,
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   30.0, 10.0, 30.0, 10.0),
-                              iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 0.0),
-                              color: const Color(0xFF041E3A),
+                              color: Color(0xFF041E3A),
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'EB Garamond',
+                                    font: GoogleFonts.ebGaramond(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     fontSize: 16.0,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
                                   ),
                               elevation: 3.0,
-                              borderSide: const BorderSide(
+                              borderSide: BorderSide(
                                 color: Colors.transparent,
                                 width: 1.0,
                               ),
@@ -275,7 +302,7 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 8.0, 8.0, 0.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => TextFormField(
@@ -286,24 +313,62 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Nome',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'EB Garamond',
-                                                    color: Colors.black,
-                                                    fontSize: 18.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'EB Garamond',
-                                                    color: Colors.black,
-                                                    fontSize: 22.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.ebGaramond(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.ebGaramond(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 22.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -349,8 +414,25 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'EB Garamond',
+                                              font: GoogleFonts.ebGaramond(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         validator: _model
                                             .nomeFieldTextControllerValidator
@@ -367,7 +449,7 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 10.0, 8.0, 0.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => TextFormField(
@@ -379,24 +461,62 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'Telefone',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'EB Garamond',
-                                                    color: Colors.black,
-                                                    fontSize: 18.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'EB Garamond',
-                                                    color: Colors.black,
-                                                    fontSize: 22.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.ebGaramond(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.ebGaramond(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 22.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -442,8 +562,25 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'EB Garamond',
+                                              font: GoogleFonts.ebGaramond(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         keyboardType: TextInputType.number,
                                         validator: _model
@@ -464,7 +601,7 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 10.0, 8.0, 10.0),
                                     child: AuthUserStreamWidget(
                                       builder: (context) => TextFormField(
@@ -475,24 +612,62 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                                         obscureText: false,
                                         decoration: InputDecoration(
                                           labelText: 'CEP',
-                                          labelStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'EB Garamond',
-                                                    color: Colors.black,
-                                                    fontSize: 18.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
-                                          hintStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .labelMedium
-                                                  .override(
-                                                    fontFamily: 'EB Garamond',
-                                                    color: Colors.black,
-                                                    fontSize: 22.0,
-                                                    letterSpacing: 0.0,
-                                                  ),
+                                          labelStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.ebGaramond(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 18.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .labelMedium
+                                              .override(
+                                                font: GoogleFonts.ebGaramond(
+                                                  fontWeight:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontWeight,
+                                                  fontStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .labelMedium
+                                                          .fontStyle,
+                                                ),
+                                                color: Colors.black,
+                                                fontSize: 22.0,
+                                                letterSpacing: 0.0,
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .fontStyle,
+                                              ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
                                               color:
@@ -538,8 +713,25 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'EB Garamond',
+                                              font: GoogleFonts.ebGaramond(
+                                                fontWeight:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontWeight,
+                                                fontStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .fontStyle,
+                                              ),
                                               letterSpacing: 0.0,
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
                                             ),
                                         keyboardType: TextInputType.number,
                                         validator: _model
@@ -560,7 +752,7 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     logFirebaseEvent('PROFILE_TECNICO_PAGE_Modificar_ON_TAP');
@@ -581,13 +773,13 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                       context: context,
                       builder: (alertDialogContext) {
                         return AlertDialog(
-                          title: const Text('Sucesso'),
-                          content: const Text('Perfil Modificado com Sucesso!'),
+                          title: Text('Sucesso'),
+                          content: Text('Perfil Modificado com Sucesso!'),
                           actions: [
                             TextButton(
                               onPressed: () =>
                                   Navigator.pop(alertDialogContext),
-                              child: const Text('Ok'),
+                              child: Text('Ok'),
                             ),
                           ],
                         );
@@ -595,25 +787,37 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                     );
                     logFirebaseEvent('Modificar_navigate_to');
 
-                    context.pushNamed('HomeTecnico');
+                    context.pushNamed(HomeTecnicoWidget.routeName);
                   },
                   text: 'Modificar',
                   options: FFButtonOptions(
                     width: MediaQuery.sizeOf(context).width * 0.95,
                     height: 49.0,
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(30.0, 10.0, 30.0, 10.0),
                     iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: const Color(0xFFBAAD72),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: Color(0xFFBAAD72),
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                          fontFamily: 'EB Garamond',
+                          font: GoogleFonts.ebGaramond(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .fontStyle,
+                          ),
                           color: Colors.white,
                           fontSize: 22.0,
                           letterSpacing: 0.0,
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .titleSmall
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).titleSmall.fontStyle,
                         ),
                     elevation: 3.0,
-                    borderSide: const BorderSide(
+                    borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1.0,
                     ),
@@ -623,10 +827,10 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
               ),
               Expanded(
                 child: Align(
-                  alignment: const AlignmentDirectional(0.0, 1.0),
+                  alignment: AlignmentDirectional(0.0, 1.0),
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                     child: FFButtonWidget(
                       onPressed: () async {
                         logFirebaseEvent(
@@ -636,19 +840,19 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: const Text('Tem certeza?'),
-                                  content: const Text(
+                                  title: Text('Tem certeza?'),
+                                  content: Text(
                                       'Todos os seus dados serão removidos.'),
                                   actions: [
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, false),
-                                      child: const Text('Não'),
+                                      child: Text('Não'),
                                     ),
                                     TextButton(
                                       onPressed: () => Navigator.pop(
                                           alertDialogContext, true),
-                                      child: const Text('Sim'),
+                                      child: Text('Sim'),
                                     ),
                                   ],
                                 );
@@ -661,26 +865,39 @@ class _ProfileTecnicoWidgetState extends State<ProfileTecnicoWidget> {
                         }
                         logFirebaseEvent('Modificar_navigate_to');
 
-                        context.pushNamed('Login');
+                        context.pushNamed(LoginWidget.routeName);
                       },
                       text: 'Remover a Conta',
                       options: FFButtonOptions(
                         width: MediaQuery.sizeOf(context).width * 0.95,
                         height: 49.0,
-                        padding: const EdgeInsetsDirectional.fromSTEB(
+                        padding: EdgeInsetsDirectional.fromSTEB(
                             30.0, 10.0, 30.0, 10.0),
                         iconPadding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).secondaryText,
                         textStyle:
                             FlutterFlowTheme.of(context).titleSmall.override(
-                                  fontFamily: 'EB Garamond',
+                                  font: GoogleFonts.ebGaramond(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
+                                  ),
                                   color: Colors.white,
                                   fontSize: 18.0,
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .titleSmall
+                                      .fontStyle,
                                 ),
                         elevation: 3.0,
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1.0,
                         ),

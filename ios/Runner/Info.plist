@@ -54,15 +54,11 @@
 	<true/>
 
 	<key>NSCameraUsageDescription</key>
-    <string>In order to take a picture or video, this app requires permission to access the camera.</string>
+    <string>O aplicativo precisa utilizar sua camera para atualizar sua foto de perfil e documentos que queira digitalizar. Apenas as pessoas que você autorizar terão acesso as suas fotos e documentos.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>In order to upload data, this app requires permission to access the photo library.</string>
+    <string>O aplicativo precisa utilizar sua biblioteca de imagem para atualizar sua foto de perfil e documentos que queira manter no aplicativo. Apenas as pessoas que você autorizar terão acesso as suas fotos e documentos.</string>
 
-    <key>UIBackgroundModes</key>
-    <array>
-        <string>fetch</string>
-        <string>remote-notification</string>
-    </array>
+
 
 
 	<key>UILaunchStoryboardName</key>

@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'login_widget.dart' show LoginWidget;
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,8 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
   TabController? tabBarController;
   int get tabBarCurrentIndex =>
       tabBarController != null ? tabBarController!.index : 0;
+  int get tabBarPreviousIndex =>
+      tabBarController != null ? tabBarController!.previousIndex : 0;
 
   // State field(s) for displayName_field widget.
   FocusNode? displayNameFieldFocusNode;
@@ -80,7 +83,7 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 
@@ -97,7 +100,7 @@ class LoginModel extends FlutterFlowModel<LoginWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 

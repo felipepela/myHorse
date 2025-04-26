@@ -3,7 +3,9 @@ import '/components/cavalo_documento_add_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'cavalo_documentos_model.dart';
 export 'cavalo_documentos_model.dart';
 
@@ -14,6 +16,9 @@ class CavaloDocumentosWidget extends StatefulWidget {
   });
 
   final DocumentReference? cavalo;
+
+  static String routeName = 'CavaloDocumentos';
+  static String routePath = '/cavaloDocumentos';
 
   @override
   State<CavaloDocumentosWidget> createState() => _CavaloDocumentosWidgetState();
@@ -92,7 +97,7 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
             borderRadius: 30.0,
             borderWidth: 1.0,
             buttonSize: 60.0,
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_back_rounded,
               color: Colors.white,
               size: 30.0,
@@ -102,7 +107,7 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
               logFirebaseEvent('IconButton_navigate_to');
 
               context.pushNamed(
-                'CavaloDetalhe',
+                CavaloDetalheWidget.routeName,
                 queryParameters: {
                   'cavalo': serializeParam(
                     widget.cavalo,
@@ -115,13 +120,22 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
           title: Text(
             'Documentos',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'EB Garamond',
+                  font: GoogleFonts.ebGaramond(
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineMedium.fontStyle,
+                  ),
                   color: Colors.white,
                   fontSize: 22.0,
                   letterSpacing: 0.0,
+                  fontWeight:
+                      FlutterFlowTheme.of(context).headlineMedium.fontWeight,
+                  fontStyle:
+                      FlutterFlowTheme.of(context).headlineMedium.fontStyle,
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 2.0,
         ),
@@ -130,13 +144,13 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
           child: Stack(
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
+                alignment: AlignmentDirectional(0.0, 0.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                          EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
                       child: StreamBuilder<List<CavalosDocumentosRecord>>(
                         stream: queryCavalosDocumentosRecord(
                           queryBuilder: (cavalosDocumentosRecord) =>
@@ -148,7 +162,7 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
-                            return const Center(
+                            return Center(
                               child: SizedBox(
                                 width: 50.0,
                                 height: 50.0,
@@ -175,7 +189,7 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
                                   listViewCavalosDocumentosRecordList[
                                       listViewIndex];
                               return Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
@@ -187,8 +201,25 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'EB Garamond',
+                                            font: GoogleFonts.ebGaramond(
+                                              fontWeight:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontWeight,
+                                              fontStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .fontStyle,
+                                            ),
                                             letterSpacing: 0.0,
+                                            fontWeight:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontWeight,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
                                           ),
                                     ),
                                     Column(
@@ -221,9 +252,9 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
                                                           builder:
                                                               (alertDialogContext) {
                                                             return AlertDialog(
-                                                              title: const Text(
+                                                              title: Text(
                                                                   'Tem Certeza?'),
-                                                              content: const Text(
+                                                              content: Text(
                                                                   'Deseja Remover o Documento?'),
                                                               actions: [
                                                                 TextButton(
@@ -231,7 +262,7 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
                                                                       Navigator.pop(
                                                                           alertDialogContext,
                                                                           false),
-                                                                  child: const Text(
+                                                                  child: Text(
                                                                       'Cancel'),
                                                                 ),
                                                                 TextButton(
@@ -239,7 +270,7 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
                                                                       Navigator.pop(
                                                                           alertDialogContext,
                                                                           true),
-                                                                  child: const Text(
+                                                                  child: Text(
                                                                       'Sim'),
                                                                 ),
                                                               ],
@@ -257,7 +288,7 @@ class _CavaloDocumentosWidgetState extends State<CavaloDocumentosWidget> {
                                               },
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       10.0, 0.0, 0.0, 0.0),
                                               child: FlutterFlowIconButton(

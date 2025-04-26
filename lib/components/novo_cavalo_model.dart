@@ -22,7 +22,7 @@ class NovoCavaloModel extends FlutterFlowModel<NovoCavaloWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 
@@ -41,7 +41,7 @@ class NovoCavaloModel extends FlutterFlowModel<NovoCavaloWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 
@@ -57,7 +57,7 @@ class NovoCavaloModel extends FlutterFlowModel<NovoCavaloWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 
@@ -73,7 +73,7 @@ class NovoCavaloModel extends FlutterFlowModel<NovoCavaloWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 
@@ -95,7 +95,7 @@ class NovoCavaloModel extends FlutterFlowModel<NovoCavaloWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 
@@ -111,7 +111,7 @@ class NovoCavaloModel extends FlutterFlowModel<NovoCavaloWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 

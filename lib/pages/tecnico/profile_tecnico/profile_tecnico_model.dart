@@ -1,4 +1,5 @@
 import '/flutter_flow/flutter_flow_util.dart';
+import '/index.dart';
 import 'profile_tecnico_widget.dart' show ProfileTecnicoWidget;
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -21,7 +22,7 @@ class ProfileTecnicoModel extends FlutterFlowModel<ProfileTecnicoWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 
@@ -39,7 +40,7 @@ class ProfileTecnicoModel extends FlutterFlowModel<ProfileTecnicoWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 
@@ -56,7 +57,7 @@ class ProfileTecnicoModel extends FlutterFlowModel<ProfileTecnicoWidget> {
       return 'Field is required';
     }
 
-    if (val.isEmpty) {
+    if (val.length < 1) {
       return 'Requires at least 1 characters.';
     }
 
